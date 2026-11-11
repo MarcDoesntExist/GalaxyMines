@@ -8,8 +8,6 @@ import org.bukkit.plugin.Plugin;
 import java.lang.reflect.Method;
 
 
-
-
 final class OraxenCustomBlockProvider extends ReflectiveCustomBlockProvider {
     private final Method placeMethod;
     private final Method isOraxenBlockMethod;

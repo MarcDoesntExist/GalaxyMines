@@ -31,7 +31,6 @@ public class ItemUtils {
     }
 
 
-
     public static Component itemText(final String input) {
         return Text.parse(input).decoration(TextDecoration.ITALIC, false);
     }
@@ -45,8 +44,6 @@ public class ItemUtils {
     public static ItemStack createItem(final Material material, final String nome) {
         return createItem(new ItemStack(material), nome);
     }
-
-
 
 
     public static ItemStack createItem(final ConfigurationSection itemSection)
@@ -104,7 +101,6 @@ public class ItemUtils {
                                        final Collection<String> desc) {
         return createItem(new ItemStack(material), nome, desc);
     }
-
 
 
     public static void addGlow(final ItemStack i) {
@@ -194,8 +190,6 @@ public class ItemUtils {
         return checkDisplayName(a) && checkDisplayName(b)
                 && a.getItemMeta().displayName().equals(b.getItemMeta().displayName());
     }
-
-
 
 
     public static boolean equalMaterial(final ItemStack a, final ItemStack b) {

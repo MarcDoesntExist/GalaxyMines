@@ -2,29 +2,9 @@ package me.marcdoesntexist.galaxymines.multiplier;
 
 import org.bukkit.entity.Player;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.LinkedHashMap;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 public final class MultiplierSources {
@@ -49,8 +29,16 @@ public final class MultiplierSources {
         return INSTANCE;
     }
 
+    private static double clampCap(final double value, final double fallback) {
+        if (!Double.isFinite(value)) {
+            return fallback;
+        }
+        return Math.max(MIN_CAP, Math.min(MAX_CAP, value));
+    }
 
-
+    private static String normalize(final String id) {
+        return id.trim().toLowerCase(Locale.ROOT);
+    }
 
     public synchronized void configure(final boolean enabled, final double dropCap,
                                        final double sellCap, final Collection<String> disabled,
@@ -72,11 +60,6 @@ public final class MultiplierSources {
         this.clampReported = false;
     }
 
-
-
-
-
-
     public synchronized boolean register(final MultiplierSource source) {
         if (source == null || source.id() == null || source.id().isBlank()) {
             return false;
@@ -90,8 +73,6 @@ public final class MultiplierSources {
         return id != null && this.sources.remove(normalize(id)) != null;
     }
 
-
-
     public synchronized List<String> ids() {
         return List.copyOf(this.sources.keySet());
     }
@@ -100,14 +81,9 @@ public final class MultiplierSources {
         return this.dropCap;
     }
 
-
-
-
     public synchronized String summary() {
         return this.sources.isEmpty() ? "none" : String.join(", ", this.sources.keySet());
     }
-
-
 
     public String describe(final Player player) {
         return String.format(Locale.ROOT, "%.2fx / %.2fx", drop(player), sell(player));
@@ -121,13 +97,9 @@ public final class MultiplierSources {
         return this.enabled;
     }
 
-
-
     public double drop(final Player player) {
         return this.combined(player, true);
     }
-
-
 
     public double sell(final Player player) {
         return this.combined(player, false);
@@ -200,19 +172,6 @@ public final class MultiplierSources {
         this.logger.info("The configured multiplier cap of " + cap + " was reached; "
                 + "raise integrations.multipliers.drop-cap/sell-cap if this is unintended.");
     }
-
-    private static double clampCap(final double value, final double fallback) {
-        if (!Double.isFinite(value)) {
-            return fallback;
-        }
-        return Math.max(MIN_CAP, Math.min(MAX_CAP, value));
-    }
-
-    private static String normalize(final String id) {
-        return id.trim().toLowerCase(Locale.ROOT);
-    }
-
-
 
     synchronized void resetForTesting() {
         this.sources.clear();

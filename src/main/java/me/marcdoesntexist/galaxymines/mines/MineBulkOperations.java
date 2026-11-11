@@ -19,20 +19,11 @@ import java.util.function.Consumer;
 import java.util.logging.Level;
 
 
-
-
-
-
-
-
-
 public final class MineBulkOperations {
     private static final Map<Mine, BukkitTask> TASKS = new IdentityHashMap<>();
 
     private MineBulkOperations() {
     }
-
-
 
 
     public static boolean startClear(final Mine mine, final Runnable onComplete) {
@@ -43,8 +34,6 @@ public final class MineBulkOperations {
         final BlockData air = Material.AIR.createBlockData();
         return start(mine, plugin, block -> block.setBlockData(air, false), onComplete);
     }
-
-
 
 
     public static boolean startFill(final Mine mine, final ItemStack item,
@@ -120,7 +109,6 @@ public final class MineBulkOperations {
     public static boolean isRunning(final Mine mine) {
         return mine != null && TASKS.containsKey(mine);
     }
-
 
 
     public static void cancel(final Mine mine) {

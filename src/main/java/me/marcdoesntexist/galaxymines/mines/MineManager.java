@@ -35,7 +35,6 @@ import java.util.function.Consumer;
 public class MineManager {
 
 
-
     public static final long MAX_MINE_VOLUME = 5_000_000L;
     private static final ArrayList<Mine> MINES;
     private static final GalaxyMines GALAXY_MINES;
@@ -58,9 +57,6 @@ public class MineManager {
         }
         return true;
     }
-
-
-
 
 
     public static boolean isValidName(final String name) {
@@ -189,8 +185,6 @@ public class MineManager {
     }
 
 
-
-
     public static boolean renameMine(final Mine mine, final String newName) {
         if (mine == null || !isValidName(newName) || !isNameAvailable(newName)) {
             return false;
@@ -223,8 +217,6 @@ public class MineManager {
     }
 
 
-
-
     public static ExpansionResult checkExpansion(final Mine mine, final int blocks) {
         if (mine == null || mine.isDeleted() || !mine.supportsExpansion()) {
             return ExpansionResult.NOT_SUPPORTED;
@@ -247,8 +239,6 @@ public class MineManager {
         }
         return ExpansionResult.OK;
     }
-
-
 
 
     public static ExpansionResult expandMine(final Mine mine, final int blocks) {
@@ -281,7 +271,6 @@ public class MineManager {
     }
 
 
-
     public static void cloneMine(final Mine source, final String newName,
                                  final Consumer<Mine> onSuccess,
                                  final Consumer<String> onFailure) {
@@ -312,7 +301,6 @@ public class MineManager {
     }
 
 
-
     public static Mine createCuboid(final String name, final Location first,
                                     final Location second) {
         if (!isValidName(name) || !isNameAvailable(name)
@@ -326,8 +314,6 @@ public class MineManager {
         mine.reset();
         return mine;
     }
-
-
 
 
     public static void suspendWorld(final org.bukkit.World world) {
@@ -353,7 +339,6 @@ public class MineManager {
                     + " mines while world " + world.getName() + " unloads", true);
         }
     }
-
 
 
     public static void resumeWorld(final org.bukkit.World world) {
@@ -390,8 +375,6 @@ public class MineManager {
         }
         mine.getHolograms().clear();
     }
-
-
 
 
     public enum ExpansionResult {

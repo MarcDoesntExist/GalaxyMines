@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Locale;
 
 
-
-
-
 public record LuckyBlockTable(String name, int rolls, List<Reward> rewards) {
     public LuckyBlockTable {
         name = name == null ? "" : name.trim().toLowerCase(Locale.ROOT);
@@ -26,7 +23,6 @@ public record LuckyBlockTable(String name, int rolls, List<Reward> rewards) {
         MESSAGE,
         NOTHING
     }
-
 
 
     public record Reward(Type type, Material material, int minAmount, int maxAmount,

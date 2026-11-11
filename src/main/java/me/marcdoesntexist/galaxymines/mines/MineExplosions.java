@@ -9,9 +9,6 @@ import org.bukkit.event.block.BlockExplodeEvent;
 import java.util.function.Consumer;
 
 
-
-
-
 public final class MineExplosions {
     private MineExplosions() {
     }
@@ -25,8 +22,6 @@ public final class MineExplosions {
             visitor.accept(block);
         }
     }
-
-
 
 
     public static Player sourcePlayer(final Entity entity) {

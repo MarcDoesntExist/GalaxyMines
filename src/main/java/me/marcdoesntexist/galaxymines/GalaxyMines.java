@@ -180,9 +180,6 @@ public class GalaxyMines extends CustomPlugin {
         Bukkit.getScheduler().runTaskLater(this, GalaxyMines.this::loadMines, 3L);
     }
 
-    
-
-
 
     private void setupIntegrations() {
         final PluginSettings settings = PluginSettings.get();
@@ -241,7 +238,7 @@ public class GalaxyMines extends CustomPlugin {
                 new File(this.getDataFolder(), "milestones-data.yml"), this.getLogger());
         PlayerStatsManager.init();
         me.marcdoesntexist.galaxymines.integration.placeholder.PlaceholderIntegration.setup(this);
-        
+
         this.wandManager = new MineWandManager();
         Bukkit.getPluginManager().registerEvents(this.wandManager, this);
         this.wandManager.start();
@@ -275,16 +272,13 @@ public class GalaxyMines extends CustomPlugin {
             this.bossBarManager = null;
         }
         this.stopIntegrations();
-        
+
         MineManager.saveAll();
         AsyncFileWriter.flush();
         WorldGuardIntegration.unload();
         CustomBlockRegistry.unload();
         this.unloadEverything();
     }
-
-    
-
 
 
     private void registerCommands() {
@@ -389,8 +383,8 @@ public class GalaxyMines extends CustomPlugin {
 
     private void unloadEverything() {
         MineBulkOperations.cancelAll();
-        
-        
+
+
         MineRepopulator.cancelAll();
         InfiniteRespawnService.clearAll();
         for (final Mine mine : MineManager.getMines()) {
@@ -401,7 +395,7 @@ public class GalaxyMines extends CustomPlugin {
                 try {
                     hologram.delete();
                 } catch (Throwable ignored) {
-                    
+
                 }
             }
             compatible.getHolograms().clear();

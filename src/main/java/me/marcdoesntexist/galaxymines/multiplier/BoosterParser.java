@@ -3,13 +3,9 @@ package me.marcdoesntexist.galaxymines.multiplier;
 import java.util.Locale;
 
 
-
-
-
 public final class BoosterParser {
     private BoosterParser() {
     }
-
 
 
     public static int durationSeconds(final String raw) {
@@ -46,7 +42,6 @@ public final class BoosterParser {
             return -1;
         }
     }
-
 
 
     public static double multiplier(final String raw) {

@@ -14,10 +14,6 @@ import java.util.List;
 import java.util.Locale;
 
 
-
-
-
-
 public final class LeaderboardMenu extends BasicInventoryMenu {
     private static final int[] PERIOD_SLOTS = {0, 1, 2};
     private static final int CLOSE_SLOT = 8;
@@ -36,7 +32,6 @@ public final class LeaderboardMenu extends BasicInventoryMenu {
         this.period = period == null ? StatsPeriod.ALL_TIME : period;
         this.initialSetup();
     }
-
 
 
     public static List<String> describe(final StatsPeriod period, final List<LeaderboardEntry> entries) {

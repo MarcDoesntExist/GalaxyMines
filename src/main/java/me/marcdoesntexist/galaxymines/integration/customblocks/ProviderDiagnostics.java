@@ -10,15 +10,9 @@ import java.util.Set;
 import java.util.function.Predicate;
 
 
-
-
-
-
 public final class ProviderDiagnostics {
     private ProviderDiagnostics() {
     }
-
-
 
 
     public static List<String> unresolvedEvents(
@@ -39,8 +33,6 @@ public final class ProviderDiagnostics {
         }
         return List.copyOf(unresolved);
     }
-
-
 
 
     public static List<String> unresolvedLuckyBlocks(

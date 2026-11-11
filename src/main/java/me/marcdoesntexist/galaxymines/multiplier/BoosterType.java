@@ -3,14 +3,9 @@ package me.marcdoesntexist.galaxymines.multiplier;
 import java.util.Locale;
 
 
-
-
-
 public enum BoosterType {
     SELL,
     DROP;
-
-
 
 
     public static BoosterType parse(final String raw) {

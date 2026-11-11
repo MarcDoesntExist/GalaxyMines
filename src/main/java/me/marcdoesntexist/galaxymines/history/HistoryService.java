@@ -10,12 +10,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 
-
-
-
-
-
-
 public final class HistoryService {
     private static final HistoryService INSTANCE = new HistoryService();
 
@@ -49,7 +43,6 @@ public final class HistoryService {
                 ((Number) items).intValue(),
                 String.valueOf(row.get("currency")));
     }
-
 
 
     public synchronized void load(final File file, final Logger logger, final int maxEntries) {
@@ -97,7 +90,6 @@ public final class HistoryService {
     }
 
 
-
     public synchronized void record(final UUID uuid, final String name, final String mine,
                                     final double amount, final int items, final String currency) {
         if (uuid == null || amount <= 0.0D || items <= 0) {
@@ -118,7 +110,6 @@ public final class HistoryService {
     }
 
 
-
     public synchronized List<HistoryEntry> entries(final UUID uuid) {
         final Deque<HistoryEntry> history = this.entries.get(uuid);
         return history == null ? List.of() : List.copyOf(history);
@@ -134,7 +125,6 @@ public final class HistoryService {
             this.save();
         }
     }
-
 
 
     public synchronized void save() {

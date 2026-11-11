@@ -3,9 +3,6 @@ package me.marcdoesntexist.galaxymines.milestone;
 import java.util.List;
 
 
-
-
-
 public record Milestone(long blocks, String message, List<String> commands) {
 
     public Milestone {

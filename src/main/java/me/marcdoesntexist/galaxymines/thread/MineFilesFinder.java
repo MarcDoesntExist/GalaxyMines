@@ -10,9 +10,6 @@ import java.util.List;
 import java.util.concurrent.CompletableFuture;
 
 
-
-
-
 public final class MineFilesFinder {
     private final GalaxyMines plugin;
 

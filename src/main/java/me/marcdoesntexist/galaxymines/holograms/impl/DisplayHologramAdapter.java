@@ -5,8 +5,6 @@ import me.marcdoesntexist.galaxymines.holograms.HologramAdapter;
 import org.bukkit.Location;
 
 
-
-
 public class DisplayHologramAdapter implements HologramAdapter {
     @Override
     public CompatibleHologram createHologram(final Location location) {

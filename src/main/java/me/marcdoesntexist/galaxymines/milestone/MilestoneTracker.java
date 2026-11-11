@@ -6,9 +6,6 @@ import java.util.Comparator;
 import java.util.List;
 
 
-
-
-
 public final class MilestoneTracker {
 
     private final List<Milestone> milestones;
@@ -22,9 +19,6 @@ public final class MilestoneTracker {
     public List<Milestone> milestones() {
         return milestones;
     }
-
-    
-
 
 
     public List<Milestone> crossed(final long before, final long after) {

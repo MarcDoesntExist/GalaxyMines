@@ -6,8 +6,6 @@ import me.marcdoesntexist.galaxymines.mines.Mine;
 import org.bukkit.inventory.ItemStack;
 
 
-
-
 public class MenuActionButton extends BasicClickableInventoryObject {
     public MenuActionButton(final ItemStack icon, final String actionId,
                             final BasicInventoryMenu menu, final Mine mine, final Object payload,

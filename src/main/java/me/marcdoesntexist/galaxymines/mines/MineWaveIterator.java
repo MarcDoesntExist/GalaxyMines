@@ -6,9 +6,6 @@ import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 
-
-
-
 public final class MineWaveIterator implements Iterator<Block> {
     private final Mine mine;
     private final MineBounds bounds;

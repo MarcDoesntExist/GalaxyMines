@@ -3,9 +3,6 @@ package me.marcdoesntexist.galaxymines.quest;
 import java.util.Locale;
 
 
-
-
-
 public enum QuestType {
     BLOCKS_MINED,
     ITEMS_SOLD,

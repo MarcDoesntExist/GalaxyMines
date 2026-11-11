@@ -4,9 +4,6 @@ import java.util.List;
 import java.util.UUID;
 
 
-
-
-
 public interface PlayerStatsStorage {
     void init() throws Exception;
 

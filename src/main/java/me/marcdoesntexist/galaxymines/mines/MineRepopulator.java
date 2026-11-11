@@ -13,17 +13,6 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-
-
-
-
-
-
-
-
-
-
-
 public final class MineRepopulator {
     private static final List<Session> SESSIONS = new ArrayList<>();
     private static BukkitTask ticker;
@@ -33,7 +22,6 @@ public final class MineRepopulator {
 
     private MineRepopulator() {
     }
-
 
 
     public static Session start(final BasicMine mine, final Runnable onComplete) {
@@ -54,7 +42,6 @@ public final class MineRepopulator {
     }
 
 
-
     public static boolean isResetting(final BasicMine mine) {
         for (final Session session : SESSIONS) {
             if (session.mine == mine) {
@@ -63,7 +50,6 @@ public final class MineRepopulator {
         }
         return false;
     }
-
 
 
     public static void cancel(final BasicMine mine) {
@@ -243,7 +229,6 @@ public final class MineRepopulator {
                     "The reset callback failed for mine " + session.mine.getName(), ex);
         }
     }
-
 
 
     public static final class Session {

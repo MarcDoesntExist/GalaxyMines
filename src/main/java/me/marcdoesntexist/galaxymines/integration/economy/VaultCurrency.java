@@ -3,9 +3,6 @@ package me.marcdoesntexist.galaxymines.integration.economy;
 import org.bukkit.entity.Player;
 
 
-
-
-
 public final class VaultCurrency implements Currency {
     public static final String ID = "money";
 

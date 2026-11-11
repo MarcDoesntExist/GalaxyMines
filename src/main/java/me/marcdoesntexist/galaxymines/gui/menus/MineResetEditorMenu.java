@@ -16,14 +16,6 @@ import java.util.List;
 import java.util.Locale;
 
 
-
-
-
-
-
-
-
-
 public final class MineResetEditorMenu extends BasicInventoryMenu {
     private final Mine mine;
     private final MineMenu parent;

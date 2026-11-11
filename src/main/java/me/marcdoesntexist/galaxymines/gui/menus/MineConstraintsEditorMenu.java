@@ -18,13 +18,6 @@ import java.util.List;
 import java.util.Set;
 
 
-
-
-
-
-
-
-
 public final class MineConstraintsEditorMenu extends BasicInventoryMenu {
     private final Mine mine;
     private final MineMenu parent;

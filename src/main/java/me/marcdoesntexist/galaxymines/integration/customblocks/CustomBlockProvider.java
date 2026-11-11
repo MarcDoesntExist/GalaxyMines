@@ -5,25 +5,16 @@ import org.bukkit.block.Block;
 import org.bukkit.inventory.ItemStack;
 
 
-
-
-
 public interface CustomBlockProvider {
     String namespace();
 
     boolean available();
 
 
-
-
     boolean place(String id, Location location);
 
 
-
-
     ItemStack item(String id);
-
-
 
 
     default String itemId(final ItemStack item) {

@@ -21,8 +21,6 @@ public interface Mine extends Iterable<Block> {
     void save();
 
 
-
-
     org.bukkit.configuration.file.FileConfiguration exportConfiguration();
 
     String getName();
@@ -90,13 +88,9 @@ public interface Mine extends Iterable<Block> {
     boolean containsMaterial(final Material p0);
 
 
-
     default boolean containsBlock(final Block block) {
         return block != null && this.containsMaterial(block.getType());
     }
-
-
-
 
 
     default String customBlockToken(final Block block) {
@@ -132,18 +126,14 @@ public interface Mine extends Iterable<Block> {
     float getPercentageRemaining();
 
 
-
-
     default boolean isInfinite() {
         return false;
     }
 
 
-
     default double getInfiniteRespawnSeconds() {
         return 0.0D;
     }
-
 
 
     default int getInfiniteMaxPending() {
@@ -178,15 +168,11 @@ public interface Mine extends Iterable<Block> {
     boolean isCompositionOnly();
 
 
-
-
     default MineConstraints getBlockConstraints() {
         return MineConstraints.NONE;
     }
 
     void setBlockConstraints(MineConstraints constraints);
-
-
 
 
     default int getWaveLayersPerTick() {
@@ -202,14 +188,11 @@ public interface Mine extends Iterable<Block> {
     void setWaveDirection(MineWaveDirection direction);
 
 
-
-
     default MineProgression getProgression() {
         return MineProgression.DISABLED;
     }
 
     void setProgression(MineProgression progression);
-
 
 
     default String getSellCurrency() {
@@ -219,7 +202,6 @@ public interface Mine extends Iterable<Block> {
     void setSellCurrency(String currencyId);
 
 
-
     default me.marcdoesntexist.galaxymines.integration.economy.SellPriority getSellPriority() {
         return me.marcdoesntexist.galaxymines.integration.economy.SellPriority.GLOBAL;
     }
@@ -227,11 +209,9 @@ public interface Mine extends Iterable<Block> {
     void setSellPriority(me.marcdoesntexist.galaxymines.integration.economy.SellPriority priority);
 
 
-
     default double getProgressionDropBonus() {
         return this.getProgression().dropBonus();
     }
-
 
 
     default double getProgressionSellBonus() {
@@ -239,12 +219,9 @@ public interface Mine extends Iterable<Block> {
     }
 
 
-
     default boolean supportsExpansion() {
         return false;
     }
-
-
 
 
     default boolean expandHorizontally(final int blocks) {
@@ -262,19 +239,14 @@ public interface Mine extends Iterable<Block> {
     void setResetOnPercent(final double percentage);
 
 
-
-
     default double getResetPercentMin() {
         return getResetOnPercent();
     }
 
 
-
     default double getResetPercentMax() {
         return getResetOnPercent();
     }
-
-
 
 
     default int getResetPercentCheckIntervalTicks() {
@@ -284,11 +256,9 @@ public interface Mine extends Iterable<Block> {
     void setResetPercentCheckIntervalTicks(int ticks);
 
 
-
     default double getResetThresholdTarget() {
         return getResetOnPercent();
     }
-
 
 
     default List<String> getPreResetCommands() {
@@ -298,14 +268,11 @@ public interface Mine extends Iterable<Block> {
     void setPreResetCommands(List<String> commands);
 
 
-
     default List<String> getPostResetCommands() {
         return List.of();
     }
 
     void setPostResetCommands(List<String> commands);
-
-
 
 
     default void setResetPercentDefault(final double percentage) {
@@ -321,8 +288,6 @@ public interface Mine extends Iterable<Block> {
     boolean isPaused();
 
     void setPaused(final boolean paused);
-
-
 
 
     default boolean isResetInProgress() {
@@ -342,8 +307,6 @@ public interface Mine extends Iterable<Block> {
     MineResetStyle getResetStyle();
 
     void setResetStyle(MineResetStyle style);
-
-
 
 
     void renameTo(String newName);

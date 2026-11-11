@@ -22,9 +22,6 @@ import java.util.Map;
 import java.util.UUID;
 
 
-
-
-
 public final class MineBossBarManager implements Listener {
     private final Map<UUID, BossBar> bars = new HashMap<>();
     private BukkitTask updateTask;

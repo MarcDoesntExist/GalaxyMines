@@ -1,10 +1,6 @@
 package me.marcdoesntexist.galaxymines.luckyblocks;
 
 
-
-
-
-
 public record LuckyBlockFeedback(String sound, String particle, int cooldownSeconds) {
     public static final LuckyBlockFeedback NONE = new LuckyBlockFeedback("", "", 0);
 

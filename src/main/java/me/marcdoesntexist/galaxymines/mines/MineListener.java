@@ -25,9 +25,6 @@ import java.util.Iterator;
 import java.util.List;
 
 
-
-
-
 public final class MineListener implements Listener {
     private final BreakRateGuard breakGuard = new BreakRateGuard();
 
@@ -44,7 +41,7 @@ public final class MineListener implements Listener {
         return false;
     }
 
-    
+
     private static boolean placeDenied(final Block destination, final Material material) {
         if (destination == null || material == null || material.isAir()) {
             return false;
@@ -64,7 +61,7 @@ public final class MineListener implements Listener {
         }
         final int before = mine.getMinedBlocks();
         mine.setBlockAsBroken(block);
-        
+
         if (source != null && mine.getMinedBlocks() > before) {
             PlayerStatsManager.addMined(source, mine);
         }
@@ -95,7 +92,7 @@ public final class MineListener implements Listener {
                 + ", counted=" + counted + ", outsideMine=" + outside, 3);
     }
 
-    
+
     private static boolean explosionAllowed(final Mine mine, final Block block) {
         if (mine == null) {
             return true;
@@ -117,29 +114,6 @@ public final class MineListener implements Listener {
                 || from.getBlockZ() != to.getBlockZ();
     }
 
-    
-    private boolean allowBreakRate(final Player player) {
-        final int limit = antiClickerLimit();
-        if (limit <= 0) {
-            return true;
-        }
-        final long now = System.currentTimeMillis();
-        if (breakGuard.allow(player.getUniqueId(), now, limit)) {
-            return true;
-        }
-        if (breakGuard.shouldWarn(player.getUniqueId(), now)) {
-            final String message = antiClickerMessage();
-            if (!message.isBlank()) {
-                try {
-                    player.sendMessage(Text.parse(message));
-                } catch (Throwable ignored) {
-                    
-                }
-            }
-        }
-        return false;
-    }
-
     private static int antiClickerLimit() {
         try {
             return GalaxyMines.getInstance().getConfig()
@@ -156,6 +130,28 @@ public final class MineListener implements Listener {
         } catch (Throwable ignored) {
             return "<red>Slow down: that is faster than a human can mine.</red>";
         }
+    }
+
+    private boolean allowBreakRate(final Player player) {
+        final int limit = antiClickerLimit();
+        if (limit <= 0) {
+            return true;
+        }
+        final long now = System.currentTimeMillis();
+        if (breakGuard.allow(player.getUniqueId(), now, limit)) {
+            return true;
+        }
+        if (breakGuard.shouldWarn(player.getUniqueId(), now)) {
+            final String message = antiClickerMessage();
+            if (!message.isBlank()) {
+                try {
+                    player.sendMessage(Text.parse(message));
+                } catch (Throwable ignored) {
+
+                }
+            }
+        }
+        return false;
     }
 
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
@@ -200,14 +196,14 @@ public final class MineListener implements Listener {
         final LuckyBlockManager luckyBlocks = LuckyBlockManager.get();
         final boolean luckyBlock = luckyBlocks.isLuckyBlock(mine, block);
         if (luckyBlock && luckyBlocks.replacesDrops(mine, block)) {
-            
+
             mineEvent.setDrops(List.of());
         }
         final boolean hasDropListeners =
                 MineBlockBreakEvent.getHandlerList().getRegisteredListeners().length > 0;
         final boolean wouldCustomHandle = mine.getDrops().requiresCustomHandling()
                 || hasDropListeners || mineEvent.isDropsModified();
-        
+
         final boolean customHandling = wouldCustomHandle
                 && mine.customBlockToken(block) == null;
         if (customHandling
@@ -216,8 +212,8 @@ public final class MineListener implements Listener {
             player.sendMessage(Text.parse(MineDropProcessor.fullInventoryMessage()));
             return;
         }
-        
-        
+
+
         if (luckyBlock) {
             luckyBlocks.trigger(player, mine, block);
         }
@@ -228,8 +224,8 @@ public final class MineListener implements Listener {
         }
         final int experience = event.getExpToDrop();
         final Location dropLocation = block.getLocation().clone().add(0.5D, 0.5D, 0.5D);
-        
-        
+
+
         event.setCancelled(true);
         event.setExpToDrop(0);
         block.setBlockData(Material.AIR.createBlockData(), false);
@@ -242,7 +238,7 @@ public final class MineListener implements Listener {
         PlayerStatsManager.addMined(player, mine);
     }
 
-    
+
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onBlockPlace(final BlockPlaceEvent event) {
         final Block block = event.getBlockPlaced();
@@ -250,7 +246,7 @@ public final class MineListener implements Listener {
         if (mine == null) {
             return;
         }
-        
+
         final MineConstraints constraints = mine.getBlockConstraints();
         if (constraints == null || !constraints.isPlaceEnabled()) {
             return;
@@ -262,7 +258,7 @@ public final class MineListener implements Listener {
         MineAccess.denyConstraintPlace(event.getPlayer());
     }
 
-    
+
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onPistonExtend(final BlockPistonExtendEvent event) {
         if (pistonMovesDeniedBlock(event.getBlocks(), event.getDirection())) {
@@ -277,7 +273,7 @@ public final class MineListener implements Listener {
         }
     }
 
-    
+
     @EventHandler(priority = EventPriority.HIGH, ignoreCancelled = true)
     public void onFallingBlockLand(final EntityChangeBlockEvent event) {
         if (!(event.getEntity() instanceof FallingBlock)) {
@@ -302,7 +298,7 @@ public final class MineListener implements Listener {
         int outside = 0;
         for (final Iterator<Block> iterator = event.blockList().iterator(); iterator.hasNext(); ) {
             final Block block = iterator.next();
-            
+
             final Mine mine = MineManager.getMineAt(block);
             if (mine == null) {
                 ++outside;
@@ -361,7 +357,7 @@ public final class MineListener implements Listener {
 
     @EventHandler
     public void onPlayerJoin(final PlayerJoinEvent event) {
-        
+
         org.bukkit.Bukkit.getScheduler().runTaskLater(
                 me.marcdoesntexist.galaxymines.GalaxyMines.getInstance(),
                 () -> MineTracker.refresh(event.getPlayer()), 1L);

@@ -95,8 +95,6 @@ public class GalaxyMineMessageManager extends BasicMessageManager {
     }
 
 
-
-
     public Component translateComponent(final String input, final Mine m) {
         if (input == null || input.isEmpty()) {
             return Component.empty();

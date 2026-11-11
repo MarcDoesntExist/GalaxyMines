@@ -5,16 +5,9 @@ import java.util.Comparator;
 import java.util.List;
 
 
-
-
-
-
-
-
 public final class CurrencyReport {
     private CurrencyReport() {
     }
-
 
 
     public static List<Entry> snapshot() {

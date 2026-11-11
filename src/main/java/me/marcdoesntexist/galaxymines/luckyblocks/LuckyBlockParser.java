@@ -8,9 +8,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.*;
 
 
-
-
-
 public final class LuckyBlockParser {
     private LuckyBlockParser() {
     }

@@ -3,8 +3,6 @@ package me.marcdoesntexist.galaxymines.integration;
 import me.marcdoesntexist.galaxymines.mines.Mine;
 
 
-
-
 public interface MineRegionProtector {
     MineRegionProtector NOOP = new MineRegionProtector() {
         @Override

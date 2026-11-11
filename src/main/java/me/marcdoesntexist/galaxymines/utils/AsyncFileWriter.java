@@ -14,9 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-
-
-
 public final class AsyncFileWriter {
     private static final Map<Path, String> PENDING = new ConcurrentHashMap<>();
     private static final ExecutorService EXECUTOR = Executors.newSingleThreadExecutor(runnable -> {
@@ -50,8 +47,6 @@ public final class AsyncFileWriter {
     }
 
 
-
-
     public static void write(final File file, final String content, final Runnable onComplete) {
         final Path target = file.toPath().toAbsolutePath().normalize();
         PENDING.put(target, content);
@@ -79,9 +74,6 @@ public final class AsyncFileWriter {
             throws IOException {
         writeAtomically(target, content, DEFAULT_MOVE_STRATEGY, DEFAULT_SLEEPER);
     }
-
-
-
 
 
     static void writeAtomically(final Path target, final String content,
@@ -161,9 +153,6 @@ public final class AsyncFileWriter {
     }
 
 
-
-
-
     public static void delete(final File file) {
         final Path target = file.toPath().toAbsolutePath().normalize();
         PENDING.remove(target);
@@ -175,7 +164,6 @@ public final class AsyncFileWriter {
             }
         });
     }
-
 
 
     public static void flush() {

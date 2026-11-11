@@ -1,21 +1,6 @@
 package me.marcdoesntexist.galaxymines.mines;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class MineBlockCursor {
 
 
@@ -35,6 +20,7 @@ public final class MineBlockCursor {
     private boolean started;
     private boolean pushedBack;
     private boolean finished;
+
     public MineBlockCursor(final int minX, final int minY, final int minZ,
                            final int maxX, final int maxY, final int maxZ,
                            final boolean wave, final Shape shape) {
@@ -60,12 +46,9 @@ public final class MineBlockCursor {
     }
 
 
-
     public static MineBlockCursor of(final Mine mine, final boolean wave) {
         return of(mine, wave, MineWaveDirection.TOP_DOWN);
     }
-
-
 
 
     public static MineBlockCursor of(final Mine mine, final boolean wave,
@@ -76,9 +59,6 @@ public final class MineBlockCursor {
                 bounds.maxX(), bounds.maxY(), bounds.maxZ(), wave, descending,
                 (x, y, z) -> mine.contains((double) x, (double) y, (double) z));
     }
-
-
-
 
 
     public boolean advance() {
@@ -104,7 +84,6 @@ public final class MineBlockCursor {
     }
 
 
-
     public void pushBack() {
         this.pushedBack = true;
     }
@@ -120,7 +99,6 @@ public final class MineBlockCursor {
     public int z() {
         return this.z;
     }
-
 
 
     public long capacity() {
@@ -154,7 +132,6 @@ public final class MineBlockCursor {
             }
         }
     }
-
 
 
     @FunctionalInterface

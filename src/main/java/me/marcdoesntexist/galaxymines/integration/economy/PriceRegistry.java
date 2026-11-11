@@ -12,11 +12,6 @@ import java.io.File;
 import java.util.*;
 
 
-
-
-
-
-
 public final class PriceRegistry {
     private static volatile Table table = Table.empty();
     private static volatile File source;
@@ -33,7 +28,6 @@ public final class PriceRegistry {
         }
         install(parse(YamlConfiguration.loadConfiguration(file)));
     }
-
 
 
     public static void reloadAsync(final File file, final Runnable onComplete) {
@@ -115,12 +109,9 @@ public final class PriceRegistry {
     }
 
 
-
-
     public static List<String> unresolvedCustomKeys() {
         return unresolved;
     }
-
 
 
     public static int customKeyCount() {
@@ -130,10 +121,6 @@ public final class PriceRegistry {
     public static double price(final ItemStack stack) {
         return price(stack, SellPriority.PROVIDER_FIRST);
     }
-
-
-
-
 
 
     public static double price(final ItemStack stack, final SellPriority priority) {
@@ -179,9 +166,6 @@ public final class PriceRegistry {
     }
 
 
-
-
-
     public static boolean isCustomItem(final ItemStack stack) {
         if (stack == null || stack.getType().isAir()) {
             return false;
@@ -201,8 +185,6 @@ public final class PriceRegistry {
         }
         return false;
     }
-
-
 
 
     public static Map<String, Double> snapshot() {

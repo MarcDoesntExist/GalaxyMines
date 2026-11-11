@@ -9,9 +9,6 @@ import io.papermc.paper.command.brigadier.Commands;
 import java.util.List;
 
 
-
-
-
 public class SellCommandTree {
     private static final String PERMISSION = "galaxymines.sell";
 

@@ -3,9 +3,6 @@ package me.marcdoesntexist.galaxymines.mines;
 import java.util.Locale;
 
 
-
-
-
 public record MineDrops(boolean autoPickup, boolean autoSmelt, boolean autoBlock, boolean autoSell,
                         double dropMultiplier, double sellMultiplier,
                         FullInventoryPolicy fullInventoryPolicy) {
@@ -35,8 +32,6 @@ public record MineDrops(boolean autoPickup, boolean autoSmelt, boolean autoBlock
             return FullInventoryPolicy.DROP;
         }
     }
-
-
 
 
     public boolean requiresCustomHandling() {

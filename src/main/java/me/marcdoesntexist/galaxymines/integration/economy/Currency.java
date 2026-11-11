@@ -5,18 +5,10 @@ import org.bukkit.entity.Player;
 import java.util.Locale;
 
 
-
-
-
-
-
-
-
 public interface Currency {
 
 
     String id();
-
 
 
     default String displayName() {
@@ -24,14 +16,10 @@ public interface Currency {
     }
 
 
-
     boolean available();
 
 
-
-
     boolean deposit(Player player, double amount);
-
 
 
     default String format(final double amount) {

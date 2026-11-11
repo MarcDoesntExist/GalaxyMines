@@ -3,13 +3,6 @@ package me.marcdoesntexist.galaxymines.integration.economy;
 import java.util.Locale;
 
 
-
-
-
-
-
-
-
 public enum SellPriority {
     PROVIDER_FIRST,
     MATERIAL_FIRST,
@@ -19,21 +12,16 @@ public enum SellPriority {
     GLOBAL;
 
 
-
-
     public static SellPriority parseForMine(final String raw) {
         final SellPriority parsed = parseOrNull(raw);
         return parsed == null ? GLOBAL : parsed;
     }
 
 
-
-
     public static SellPriority parseGlobal(final String raw) {
         final SellPriority parsed = parseOrNull(raw);
         return parsed == null || parsed == GLOBAL ? PROVIDER_FIRST : parsed;
     }
-
 
 
     public static SellPriority parseOrNull(final String raw) {
@@ -50,11 +38,6 @@ public enum SellPriority {
             default -> null;
         };
     }
-
-
-
-
-
 
 
     public double select(final double providerPrice, final boolean providerResolved,

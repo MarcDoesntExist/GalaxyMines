@@ -4,9 +4,6 @@ import java.util.Locale;
 import java.util.Map;
 
 
-
-
-
 public record MineLuckyBlocks(String mineName, boolean replaceDrops,
                               Map<String, String> blocks) {
     public MineLuckyBlocks {

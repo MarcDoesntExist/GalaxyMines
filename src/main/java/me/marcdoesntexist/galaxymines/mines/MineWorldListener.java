@@ -7,9 +7,6 @@ import org.bukkit.event.world.WorldLoadEvent;
 import org.bukkit.event.world.WorldUnloadEvent;
 
 
-
-
-
 public final class MineWorldListener implements Listener {
 
     @EventHandler(priority = EventPriority.MONITOR)

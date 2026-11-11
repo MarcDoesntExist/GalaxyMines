@@ -3,9 +3,6 @@ package me.marcdoesntexist.galaxymines.mines;
 import java.util.Locale;
 
 
-
-
-
 public enum MineResetStyle {
     INSTANT,
     WAVE;

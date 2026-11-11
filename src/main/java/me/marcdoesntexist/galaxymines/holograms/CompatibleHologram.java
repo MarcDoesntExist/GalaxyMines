@@ -26,13 +26,9 @@ public interface CompatibleHologram {
     int size();
 
 
-
-
     default boolean isSpawned() {
         return true;
     }
-
-
 
 
     default void recreate() {

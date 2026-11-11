@@ -39,9 +39,6 @@ public class MineBlockBreakEvent extends CancellableMineEvent<MineBlockBreakEven
         return player;
     }
 
-    
-
-
 
     public List<ItemStack> getDrops() {
         return this.drops;

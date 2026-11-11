@@ -6,40 +6,14 @@ import java.util.Locale;
 import java.util.regex.Pattern;
 
 
-
-
-
-
-
-
-
-
 public final class PriceEditorService {
-    
+
     public static final double MAX_PRICE = 1_000_000_000.0D;
 
     private static final Pattern PROVIDER = Pattern.compile("^[a-z0-9_.-]+:[a-z0-9_./-]+$");
 
     private PriceEditorService() {
     }
-
-    public enum Result {
-        OK, INVALID_KEY, INVALID_PRICE, NOT_FOUND, WRITE_FAILED
-    }
-
-    
-
-
-
-    public record Outcome(Result result, String key, double value) {
-        public boolean ok() {
-            return this.result == Result.OK;
-        }
-    }
-
-    
-
-
 
     public static String validateKey(final String raw) {
         final String trimmed = raw == null ? "" : raw.trim();
@@ -53,9 +27,6 @@ public final class PriceEditorService {
         final String normalized = trimmed.toUpperCase(Locale.ROOT);
         return MaterialCatalog.isKnown(normalized) ? normalized : null;
     }
-
-    
-
 
     public static Double validatePrice(final String raw) {
         final String trimmed = raw == null ? "" : raw.trim();
@@ -108,10 +79,19 @@ public final class PriceEditorService {
         return new Outcome(Result.OK, normalized, 0.0D);
     }
 
-    
     public static boolean isRemoval(final String raw) {
         final String value = raw == null ? "" : raw.trim();
         return value.equalsIgnoreCase("remove") || value.equalsIgnoreCase("delete")
                 || value.equalsIgnoreCase("rimuovi");
+    }
+
+    public enum Result {
+        OK, INVALID_KEY, INVALID_PRICE, NOT_FOUND, WRITE_FAILED
+    }
+
+    public record Outcome(Result result, String key, double value) {
+        public boolean ok() {
+            return this.result == Result.OK;
+        }
     }
 }

@@ -11,20 +11,7 @@ import java.util.Locale;
 import java.util.Map;
 
 
-
-
-
-
-
-
-
-
-
 public final class BuyService {
-
-    public enum Result {
-        BOUGHT, DISABLED, PROVIDER_MISSING, UNKNOWN_ITEM, NOT_PRICED, FULL, INSUFFICIENT
-    }
 
     private BuyService() {
     }
@@ -33,10 +20,6 @@ public final class BuyService {
         final PluginSettings.Economy economy = PluginSettings.get().economy;
         return economy.enabled && economy.buyEnabled && EconomyService.isAvailable();
     }
-
-    
-
-
 
     public static double quote(final Material material, final int amount, final double markup) {
         if (material == null || amount <= 0) {
@@ -55,7 +38,7 @@ public final class BuyService {
             final Result result = EconomyService.isAvailable()
                     ? Result.DISABLED : Result.PROVIDER_MISSING;
             player.sendMessage(Messages.get(result == Result.DISABLED
-                    ? "messages.buy.disabled" : "messages.buy.providerMissing",
+                            ? "messages.buy.disabled" : "messages.buy.providerMissing",
                     result == Result.DISABLED
                             ? "<red>The buy shop is disabled."
                             : "<red>No economy provider is available."));
@@ -96,10 +79,6 @@ public final class BuyService {
                 "%price%", EconomyService.format(cost)));
         return Result.BOUGHT;
     }
-
-    
-
-
 
     static boolean hasRoom(final PlayerInventory inventory, final Material material, final int amount) {
         if (inventory == null || material == null || amount <= 0) {
@@ -143,5 +122,9 @@ public final class BuyService {
         } catch (IllegalArgumentException exception) {
             return null;
         }
+    }
+
+    public enum Result {
+        BOUGHT, DISABLED, PROVIDER_MISSING, UNKNOWN_ITEM, NOT_PRICED, FULL, INSUFFICIENT
     }
 }

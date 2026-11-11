@@ -10,19 +10,9 @@ import java.util.Locale;
 import java.util.Map;
 
 
-
-
-
-
-
-
-
-
-
 public final class ResetCommandRunner {
     private ResetCommandRunner() {
     }
-
 
 
     public static void run(final String phase, final Mine mine, final List<String> commands) {
@@ -39,8 +29,6 @@ public final class ResetCommandRunner {
             execute(command, mine, phase);
         }
     }
-
-
 
 
     static String expand(final String template, final Map<String, String> placeholders) {
@@ -60,7 +48,6 @@ public final class ResetCommandRunner {
         }
         return result;
     }
-
 
 
     static Map<String, String> placeholders(final Mine mine) {

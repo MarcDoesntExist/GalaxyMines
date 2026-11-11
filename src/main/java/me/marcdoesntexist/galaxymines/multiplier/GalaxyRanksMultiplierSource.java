@@ -7,14 +7,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-
-
-
-
-
-
-
-
 public final class GalaxyRanksMultiplierSource implements MultiplierSource {
     public static final String ID = "galaxyranks";
     private static final String API_CLASS = "me.marcdoesntexist.galaxyranks.api.GalaxyRanksAPI";
@@ -29,14 +21,9 @@ public final class GalaxyRanksMultiplierSource implements MultiplierSource {
     }
 
 
-
-
     public static GalaxyRanksMultiplierSource resolve(final Logger logger) {
         return resolve(logger, API_CLASS);
     }
-
-
-
 
 
     static GalaxyRanksMultiplierSource resolve(final Logger logger, final String apiClass) {

@@ -14,9 +14,6 @@ import java.util.Map;
 import java.util.UUID;
 
 
-
-
-
 public final class MineTracker {
     private static final Map<UUID, Mine> CURRENT = new HashMap<>();
 
@@ -62,8 +59,6 @@ public final class MineTracker {
     }
 
 
-
-
     public static void clear(final Mine mine) {
         if (mine == null) {
             return;
@@ -74,8 +69,6 @@ public final class MineTracker {
             }
         }
     }
-
-
 
 
     public static void clearWorld(final World world) {
@@ -96,8 +89,6 @@ public final class MineTracker {
         }
         CURRENT.clear();
     }
-
-
 
 
     private static void leave(final Player player, final Mine mine) {

@@ -9,9 +9,6 @@ import java.util.Locale;
 import java.util.Objects;
 
 
-
-
-
 public record MineEventDefinition(
         String id,
         String displayName,
@@ -51,8 +48,6 @@ public record MineEventDefinition(
         return mineName != null
                 && this.mines.contains(mineName.toLowerCase(Locale.ROOT));
     }
-
-
 
 
     public record EventActions(double dropMultiplier, double sellMultiplier,

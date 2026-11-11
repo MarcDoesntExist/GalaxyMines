@@ -252,8 +252,6 @@ public class MineConfig {
     }
 
 
-
-
     private static java.util.Set<Material> readMaterials(final FileConfiguration mine,
                                                          final String path) {
         final java.util.EnumSet<Material> materials = java.util.EnumSet.noneOf(Material.class);
@@ -277,8 +275,6 @@ public class MineConfig {
         }
         return materials;
     }
-
-
 
 
     private static List<String> readCommands(final FileConfiguration mine, final String path) {
@@ -486,17 +482,14 @@ public class MineConfig {
     }
 
 
-
     public boolean isInfinite() {
         return this.infinite;
     }
 
 
-
     public double getInfiniteRespawnSeconds() {
         return this.infiniteRespawnSeconds;
     }
-
 
 
     public int getInfiniteMaxPending() {

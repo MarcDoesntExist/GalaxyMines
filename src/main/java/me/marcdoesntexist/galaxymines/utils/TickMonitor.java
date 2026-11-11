@@ -10,16 +10,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.plugin.Plugin;
 
 
-
-
-
-
-
-
-
-
-
-
 public final class TickMonitor implements Listener {
     private static final int MAX_SAMPLES = 4096;
     private static final TickMonitor INSTANCE = new TickMonitor();
@@ -31,8 +21,6 @@ public final class TickMonitor implements Listener {
 
     private TickMonitor() {
     }
-
-
 
 
     public static void register(final Plugin plugin) {
@@ -48,17 +36,14 @@ public final class TickMonitor implements Listener {
     }
 
 
-
     public static double averageMillis() {
         return ResetMetrics.averageMillis(INSTANCE.window());
     }
 
 
-
     public static double p95Millis() {
         return ResetMetrics.percentileMillis(INSTANCE.window(), 0.95D);
     }
-
 
 
     public static int samples() {

@@ -22,12 +22,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 
-
-
-
-
-
-
 public final class AutoMinerService {
     private static final AutoMinerService INSTANCE = new AutoMinerService();
 
@@ -63,7 +57,6 @@ public final class AutoMinerService {
     }
 
 
-
     public synchronized boolean toggle(final Player player) {
         final UUID uuid = player.getUniqueId();
         final boolean enabled;
@@ -82,7 +75,6 @@ public final class AutoMinerService {
             this.save();
         }
     }
-
 
 
     public synchronized boolean setActive(final Player player, final boolean enabled) {

@@ -2,21 +2,7 @@ package me.marcdoesntexist.galaxymines.mines;
 
 import me.marcdoesntexist.galaxymines.config.PluginSettings;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TreeMap;
-
-
-
-
-
-
-
-
-
-
+import java.util.*;
 
 
 public final class ResetMetrics {
@@ -42,15 +28,11 @@ public final class ResetMetrics {
         this.sliceBlocks = new int[capacity];
     }
 
-    
-
 
     public static ResetMetrics forMine(final String mineName) {
         return BY_MINE.computeIfAbsent(mineName == null ? "" : mineName,
                 ignored -> new ResetMetrics(PluginSettings.get().timings.sampleSize));
     }
-
-    
 
 
     public static ResetMetrics find(final String mineName) {
@@ -65,15 +47,10 @@ public final class ResetMetrics {
         BY_MINE.clear();
     }
 
-    
-
 
     public static int trackedMines() {
         return BY_MINE.size();
     }
-
-    
-
 
 
     public static Map<String, Snapshot> snapshotAll() {
@@ -81,8 +58,6 @@ public final class ResetMetrics {
         BY_MINE.forEach((name, metrics) -> all.put(name, metrics.snapshot()));
         return Collections.unmodifiableMap(all);
     }
-
-    
 
 
     public static double averageMillis(final long[] nanos) {
@@ -96,9 +71,6 @@ public final class ResetMetrics {
         return total / 1_000_000.0D / nanos.length;
     }
 
-    
-
-
 
     public static double percentileMillis(final long[] nanos, final double percentile) {
         if (nanos == null || nanos.length == 0) {
@@ -111,8 +83,6 @@ public final class ResetMetrics {
         final int index = Math.max(0, Math.min(sorted.length - 1, rank));
         return sorted[index] / 1_000_000.0D;
     }
-
-    
 
 
     public static double blocksPerSecond(final long[] nanos, final int[] blocks) {
@@ -132,16 +102,12 @@ public final class ResetMetrics {
         return totalBlocks / (totalNanos / 1_000_000_000.0D);
     }
 
-    
-
 
     public void begin() {
         this.currentStartNanos = System.nanoTime();
         this.currentBlocks = 0L;
         this.currentSlices = 0L;
     }
-
-    
 
 
     public void recordSlice(final long nanos, final int blocks) {
@@ -158,8 +124,6 @@ public final class ResetMetrics {
         ++this.currentSlices;
     }
 
-    
-
 
     public void finish() {
         this.lastResetAtMillis = System.currentTimeMillis();
@@ -171,8 +135,6 @@ public final class ResetMetrics {
         ++this.resets;
         this.currentStartNanos = 0L;
     }
-
-    
 
 
     public void abandon() {
@@ -203,8 +165,6 @@ public final class ResetMetrics {
                 averageMillis(nanos), percentileMillis(nanos, 0.95D), percentileMillis(nanos, 1.0D),
                 blocksPerSecond(nanos, blocks), this.filled);
     }
-
-    
 
 
     public record Snapshot(long resets, long totalBlocks, long lastResetAtMillis,

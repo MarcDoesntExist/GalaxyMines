@@ -1,4 +1,3 @@
-
 events:
   double-drops:
     enabled: false

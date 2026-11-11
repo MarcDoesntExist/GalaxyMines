@@ -5,31 +5,11 @@ import java.util.Arrays;
 import java.util.List;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class YamlTextPatcher {
     private static final String INDENT = "  ";
 
     private YamlTextPatcher() {
     }
-
-
-
-
-
 
 
     public static String insertMissingLeaf(final String text, final String path,
@@ -56,7 +36,6 @@ public final class YamlTextPatcher {
     }
 
 
-
     public static String setTopLevelValue(final String text, final String key,
                                           final String valueLiteral) {
         if (text == null || key == null || key.isBlank()) {
@@ -75,8 +54,6 @@ public final class YamlTextPatcher {
         lines.add(0, rendered);
         return join(lines, lineSeparator);
     }
-
-
 
 
     private static boolean insertBelow(final List<String> lines, final int[] section,
@@ -105,7 +82,6 @@ public final class YamlTextPatcher {
     }
 
 
-
     private static List<String> buildBlock(final int baseIndent, final String[] segments,
                                            final String valueLiteral) {
         final List<String> block = new ArrayList<>(segments.length);
@@ -122,7 +98,6 @@ public final class YamlTextPatcher {
     }
 
 
-
     private static int[] findSection(final List<String> lines, final int from, final int to,
                                      final int indent, final String key) {
         final String prefix = spaces(indent) + key + ":";
@@ -133,8 +108,6 @@ public final class YamlTextPatcher {
         }
         return null;
     }
-
-
 
 
     private static int sectionEnd(final List<String> lines, final int keyLine, final int to,
@@ -150,8 +123,6 @@ public final class YamlTextPatcher {
         }
         return Math.min(to, lines.size());
     }
-
-
 
 
     private static int insertionPoint(final List<String> lines, final int from, final int to) {

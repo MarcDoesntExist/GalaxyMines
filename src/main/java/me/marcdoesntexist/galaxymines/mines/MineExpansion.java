@@ -1,11 +1,6 @@
 package me.marcdoesntexist.galaxymines.mines;
 
 
-
-
-
-
-
 public final class MineExpansion {
 
 
@@ -15,14 +10,11 @@ public final class MineExpansion {
     }
 
 
-
-
     public static MineBounds expand(final MineBounds bounds, final int blocks) {
         final int amount = Math.max(0, blocks);
         return new MineBounds(bounds.minX() - amount, bounds.minY(), bounds.minZ() - amount,
                 bounds.maxX() + amount, bounds.maxY(), bounds.maxZ() + amount);
     }
-
 
 
     public static long volume(final MineBounds bounds) {
@@ -37,7 +29,6 @@ public final class MineExpansion {
         }
         return x * y * z;
     }
-
 
 
     public static boolean overlaps(final MineBounds first, final MineBounds second) {

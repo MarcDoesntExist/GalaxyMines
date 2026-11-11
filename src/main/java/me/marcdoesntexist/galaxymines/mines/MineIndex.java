@@ -7,12 +7,6 @@ import java.util.*;
 import java.util.function.Consumer;
 
 
-
-
-
-
-
-
 public final class MineIndex {
     private static final Map<UUID, Map<Long, List<Mine>>> BY_WORLD = new HashMap<>();
 
@@ -60,11 +54,9 @@ public final class MineIndex {
     }
 
 
-
     public static int worldCount() {
         return BY_WORLD.size();
     }
-
 
 
     public static int chunkCount() {
@@ -74,7 +66,6 @@ public final class MineIndex {
         }
         return count;
     }
-
 
 
     public static int entryCount() {

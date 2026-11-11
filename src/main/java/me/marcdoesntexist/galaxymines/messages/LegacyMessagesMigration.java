@@ -13,9 +13,6 @@ import java.nio.file.StandardCopyOption;
 import java.util.logging.Level;
 
 
-
-
-
 public final class LegacyMessagesMigration {
     private LegacyMessagesMigration() {
     }

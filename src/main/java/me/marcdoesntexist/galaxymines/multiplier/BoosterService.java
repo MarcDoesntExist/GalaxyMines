@@ -12,13 +12,6 @@ import java.util.function.LongSupplier;
 import java.util.logging.Logger;
 
 
-
-
-
-
-
-
-
 public final class BoosterService {
     private static final BoosterService INSTANCE = new BoosterService();
 
@@ -35,7 +28,6 @@ public final class BoosterService {
     public static BoosterService get() {
         return INSTANCE;
     }
-
 
 
     public synchronized void load(final File file, final Logger logger,
@@ -84,9 +76,6 @@ public final class BoosterService {
     }
 
 
-
-
-
     public synchronized PlayerBooster give(final UUID uuid, final BoosterType type,
                                            final double multiplier, final int durationSeconds) {
         if (uuid == null || type == null) {
@@ -108,7 +97,6 @@ public final class BoosterService {
         this.save();
         return booster;
     }
-
 
 
     public synchronized double multiplier(final UUID uuid, final BoosterType type) {
@@ -137,7 +125,6 @@ public final class BoosterService {
     public double multiplier(final Player player, final BoosterType type) {
         return player == null ? 1.0D : this.multiplier(player.getUniqueId(), type);
     }
-
 
 
     public synchronized List<PlayerBooster> active(final UUID uuid) {
@@ -190,7 +177,6 @@ public final class BoosterService {
     }
 
 
-
     public synchronized void save() {
         if (this.file == null) {
             return;
@@ -224,7 +210,6 @@ public final class BoosterService {
         this.save();
         this.boosters.clear();
     }
-
 
 
     synchronized void clock(final LongSupplier clock) {

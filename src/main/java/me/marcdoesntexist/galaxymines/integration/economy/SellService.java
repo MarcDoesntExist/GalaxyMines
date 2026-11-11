@@ -14,13 +14,6 @@ import java.util.List;
 import java.util.Map;
 
 
-
-
-
-
-
-
-
 public final class SellService {
     private SellService() {
     }
@@ -28,8 +21,6 @@ public final class SellService {
     public static Sale sellHand(final Player player, final Mine mine) {
         return sellSingle(player, mine, player.getInventory().getItemInMainHand());
     }
-
-    
 
 
     public static Sale sellInventory(final Player player, final Mine mine) {
@@ -58,14 +49,11 @@ public final class SellService {
             contents[slot] = null;
         }
         if (count > 0) {
-            
+
             player.getInventory().setStorageContents(contents);
         }
         return finish(player, mine, total, count, sold, currency);
     }
-
-    
-
 
 
     public static Sale sellDrops(final Player player, final Mine mine, final List<ItemStack> drops) {
@@ -119,8 +107,8 @@ public final class SellService {
             returnItems(player, sold);
             return new Sale(0.0D, 0, currencyId);
         }
-        
-        
+
+
         if (currency.id().equals(CurrencyRegistry.defaultId())) {
             PlayerStatsManager.addSold(player, mine, count, total);
         }
@@ -140,17 +128,11 @@ public final class SellService {
         }
     }
 
-    
-
-
 
     public static boolean isEnabled() {
         return PluginSettings.get().economy.enabled
                 && CurrencyRegistry.available(CurrencyRegistry.defaultId());
     }
-
-    
-
 
 
     static Currency currencyFor(final Mine mine) {
@@ -164,8 +146,6 @@ public final class SellService {
         return fallback != null && fallback.available() ? fallback : null;
     }
 
-    
-
 
     static SellPriority priorityFor(final Mine mine) {
         final SellPriority global = PluginSettings.get().economy.sellPriority;
@@ -175,10 +155,6 @@ public final class SellService {
         final SellPriority own = mine.getSellPriority();
         return own == null || own == SellPriority.GLOBAL ? global : own;
     }
-
-    
-
-
 
 
     public static double playerMultiplier(final Player player) {
@@ -199,11 +175,11 @@ public final class SellService {
             multiplier *= me.marcdoesntexist.galaxymines.events.MineEventManager.get()
                     .sellMultiplier(mine);
         }
-        
-        
+
+
         multiplier *= BoosterService.get().multiplier(player, BoosterType.SELL);
-        
-        
+
+
         multiplier *= me.marcdoesntexist.galaxymines.multiplier.MultiplierSources.get()
                 .sell(player);
         return multiplier;

@@ -3,9 +3,6 @@ package me.marcdoesntexist.galaxymines.mines;
 import java.util.Locale;
 
 
-
-
-
 public enum MineWaveDirection {
     TOP_DOWN,
     BOTTOM_UP;

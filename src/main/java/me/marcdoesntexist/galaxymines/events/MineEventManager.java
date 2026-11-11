@@ -21,10 +21,6 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.ToDoubleFunction;
 
 
-
-
-
-
 public final class MineEventManager {
     private static final MineEventManager INSTANCE = new MineEventManager();
 
@@ -39,8 +35,6 @@ public final class MineEventManager {
     public static MineEventManager get() {
         return INSTANCE;
     }
-
-
 
 
     static ItemStack rareDropStack(final RareDrop rare) {
@@ -59,7 +53,6 @@ public final class MineEventManager {
         }
         return new ItemStack(rare.material(), rare.amount());
     }
-
 
 
     private static String prepareMessage(final MineEventDefinition definition,
@@ -126,8 +119,6 @@ public final class MineEventManager {
     }
 
 
-
-
     public void applyDefinitions(final Map<String, MineEventDefinition> definitions) {
         stop();
         this.definitions.clear();
@@ -150,8 +141,6 @@ public final class MineEventManager {
             }
         }
     }
-
-
 
 
     void expire(final long nowMillis) {
@@ -227,11 +216,9 @@ public final class MineEventManager {
     }
 
 
-
     public Map<String, MineEventDefinition> definitions() {
         return Map.copyOf(this.definitions);
     }
-
 
 
     public List<String> activeDisplayNames() {
@@ -242,8 +229,6 @@ public final class MineEventManager {
         }
         return names;
     }
-
-
 
 
     public int remainingSeconds(final String id) {
@@ -257,7 +242,6 @@ public final class MineEventManager {
         final long remaining = until - System.currentTimeMillis();
         return remaining <= 0L ? 0 : (int) Math.ceil(remaining / 1000.0D);
     }
-
 
 
     public int secondsUntilNextExpiry() {
@@ -279,8 +263,6 @@ public final class MineEventManager {
     }
 
 
-
-
     public MineEventDefinition definition(final String id) {
         return id == null ? null : this.definitions.get(id.toLowerCase(Locale.ROOT));
     }
@@ -292,8 +274,6 @@ public final class MineEventManager {
     public double sellMultiplier(final Mine mine) {
         return multiplier(mine, definition -> definition.actions().sellMultiplier());
     }
-
-
 
 
     public List<ItemStack> rareDrops(final Mine mine) {
@@ -317,7 +297,6 @@ public final class MineEventManager {
         }
         return drops;
     }
-
 
 
     public ItemStack rareDrop(final Mine mine) {
@@ -372,8 +351,6 @@ public final class MineEventManager {
                     "Event '" + definition.id() + "' " + state, 2);
         }
     }
-
-
 
 
     public void stop() {

@@ -8,19 +8,9 @@ import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
-
-
-
-
-
-
 
 
 public final class MilestoneService {
@@ -41,24 +31,6 @@ public final class MilestoneService {
         return INSTANCE;
     }
 
-    public void load(final ConfigurationSection section, final File dataFile, final Logger logger) {
-        this.dataFile = dataFile;
-        this.logger = logger;
-        this.tracker = new MilestoneTracker(parse(section));
-        this.enabled = section != null && section.getBoolean("enabled", false)
-                && !this.tracker.milestones().isEmpty();
-        this.totals.clear();
-        this.awarded.clear();
-        if (!this.enabled) {
-            return;
-        }
-        loadData();
-        if (logger != null) {
-            logger.info("Block milestones: " + tracker.milestones().size() + " thresholds");
-        }
-    }
-
-    
     public static List<Milestone> parse(final ConfigurationSection section) {
         if (section == null) {
             return List.of();
@@ -90,7 +62,31 @@ public final class MilestoneService {
         return parsed;
     }
 
-    
+    private static void saveQuietly(final YamlConfiguration yaml, final File file) {
+        try {
+            yaml.save(file);
+        } catch (Exception ignored) {
+
+        }
+    }
+
+    public void load(final ConfigurationSection section, final File dataFile, final Logger logger) {
+        this.dataFile = dataFile;
+        this.logger = logger;
+        this.tracker = new MilestoneTracker(parse(section));
+        this.enabled = section != null && section.getBoolean("enabled", false)
+                && !this.tracker.milestones().isEmpty();
+        this.totals.clear();
+        this.awarded.clear();
+        if (!this.enabled) {
+            return;
+        }
+        loadData();
+        if (logger != null) {
+            logger.info("Block milestones: " + tracker.milestones().size() + " thresholds");
+        }
+    }
+
     public void record(final Player player) {
         if (!enabled || player == null) {
             return;
@@ -123,7 +119,7 @@ public final class MilestoneService {
                 player.sendMessage(Text.parse(milestone.message()
                         .replace("%player%", player.getName())));
             } catch (Throwable ignored) {
-                
+
             }
         }
         for (final String raw : milestone.commands()) {
@@ -163,44 +159,11 @@ public final class MilestoneService {
         return tracker;
     }
 
-    
-
-
-
     public Status status(final UUID player) {
         final long total = total(player);
         return new Status(this.enabled, this.tracker.milestones(), total,
                 this.tracker.nextThreshold(total),
                 this.awarded.getOrDefault(player, Set.of()));
-    }
-
-    
-
-
-
-
-
-
-    public record Status(boolean enabled, List<Milestone> milestones, long total,
-                         long nextThreshold, Set<Long> awarded) {
-
-        public Status {
-            milestones = List.copyOf(milestones == null ? List.of() : milestones);
-            awarded = Set.copyOf(awarded == null ? Set.of() : awarded);
-        }
-
-        public boolean allReached() {
-            return this.nextThreshold <= 0L;
-        }
-
-        public boolean isPaid(final long blocks) {
-            return this.awarded.contains(blocks);
-        }
-
-        
-        public long remaining() {
-            return this.nextThreshold <= 0L ? 0L : Math.max(0L, this.nextThreshold - this.total);
-        }
     }
 
     private void loadData() {
@@ -230,7 +193,7 @@ public final class MilestoneService {
         }
     }
 
-    
+
     public synchronized void saveAsync() {
         if (!enabled || dataFile == null) {
             return;
@@ -246,15 +209,7 @@ public final class MilestoneService {
             Bukkit.getScheduler().runTaskAsynchronously(GalaxyMines.getInstance(),
                     () -> saveQuietly(yaml, target));
         } catch (Throwable ignored) {
-            
-        }
-    }
 
-    private static void saveQuietly(final YamlConfiguration yaml, final File file) {
-        try {
-            yaml.save(file);
-        } catch (Exception ignored) {
-            
         }
     }
 
@@ -265,5 +220,27 @@ public final class MilestoneService {
         totals.clear();
         awarded.clear();
         enabled = false;
+    }
+
+    public record Status(boolean enabled, List<Milestone> milestones, long total,
+                         long nextThreshold, Set<Long> awarded) {
+
+        public Status {
+            milestones = List.copyOf(milestones == null ? List.of() : milestones);
+            awarded = Set.copyOf(awarded == null ? Set.of() : awarded);
+        }
+
+        public boolean allReached() {
+            return this.nextThreshold <= 0L;
+        }
+
+        public boolean isPaid(final long blocks) {
+            return this.awarded.contains(blocks);
+        }
+
+
+        public long remaining() {
+            return this.nextThreshold <= 0L ? 0L : Math.max(0L, this.nextThreshold - this.total);
+        }
     }
 }

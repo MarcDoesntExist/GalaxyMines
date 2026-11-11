@@ -8,12 +8,6 @@ import com.sk89q.worldedit.regions.Region;
 import org.bukkit.entity.Player;
 
 
-
-
-
-
-
-
 public final class WorldEditHook {
 
     private WorldEditHook() {

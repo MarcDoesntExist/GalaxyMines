@@ -8,9 +8,6 @@ import org.bukkit.entity.Player;
 import java.lang.reflect.Method;
 
 
-
-
-
 public final class EconomyService {
     private static Object economy;
     private static Method isEnabled;

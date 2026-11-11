@@ -15,9 +15,6 @@ import java.util.Map;
 import java.util.function.Consumer;
 
 
-
-
-
 public final class MineEventParser {
     private MineEventParser() {
     }

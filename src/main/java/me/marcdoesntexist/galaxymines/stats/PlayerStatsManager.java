@@ -16,10 +16,6 @@ import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
 
 
-
-
-
-
 public final class PlayerStatsManager {
     private static final Map<UUID, PlayerStats> PROFILES = new ConcurrentHashMap<>();
     private static final Set<UUID> LOADING = ConcurrentHashMap.newKeySet();
@@ -46,8 +42,8 @@ public final class PlayerStatsManager {
         });
         storage = createStorage(settings);
         startFlushTask(settings.saveSeconds);
-        
-        
+
+
         for (final Player player : Bukkit.getOnlinePlayers()) {
             loadAsync(player);
         }
@@ -144,10 +140,10 @@ public final class PlayerStatsManager {
     }
 
     public static void addMined(final Player player, final Mine mine) {
-        
+
         me.marcdoesntexist.galaxymines.milestone.MilestoneService.get().record(player);
-        
-        
+
+
         me.marcdoesntexist.galaxymines.quest.QuestService.get().addProgress(player,
                 me.marcdoesntexist.galaxymines.quest.QuestType.BLOCKS_MINED, 1L);
         final me.marcdoesntexist.galaxymines.pass.BattlePassService battlePass =
@@ -179,10 +175,6 @@ public final class PlayerStatsManager {
         profile(player).addSold(items, money);
     }
 
-    
-
-
-
 
     public static void flush(final Player player, final boolean forget) {
         if (!isEnabled()) {
@@ -193,19 +185,16 @@ public final class PlayerStatsManager {
         if (stats == null) {
             return;
         }
-        
-        
+
+
         save(stats, forget ? () -> forgetProfile(uuid, stats) : null);
     }
-
-    
-
 
 
     private static void forgetProfile(final UUID uuid, final PlayerStats stats) {
         if (!stats.dirty() && PROFILES.get(uuid) == stats && Bukkit.getPlayer(uuid) == null) {
-            
-            
+
+
             PROFILES.remove(uuid, stats);
         }
     }
@@ -213,10 +202,6 @@ public final class PlayerStatsManager {
     private static void save(final PlayerStats stats) {
         save(stats, null);
     }
-
-    
-
-
 
 
     private static void save(final PlayerStats stats, final Runnable afterSave) {
@@ -317,8 +302,6 @@ public final class PlayerStatsManager {
         current.execute(runnable);
     }
 
-    
-
 
     public static void shutdown() {
         if (flushTask != null) {
@@ -331,8 +314,8 @@ public final class PlayerStatsManager {
             enabled = false;
             return;
         }
-        
-        
+
+
         current.shutdown();
         try {
             if (!current.awaitTermination(10L, TimeUnit.SECONDS)) {

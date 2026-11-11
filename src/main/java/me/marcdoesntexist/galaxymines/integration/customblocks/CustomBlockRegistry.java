@@ -12,9 +12,6 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-
-
-
 public final class CustomBlockRegistry {
     private static final Map<String, CustomBlockProvider> PROVIDERS = new LinkedHashMap<>();
     private static final Set<String> WARNED = ConcurrentHashMap.newKeySet();
@@ -41,7 +38,6 @@ public final class CustomBlockRegistry {
         WARNED.clear();
         plugin = null;
     }
-
 
 
     static void register(final CustomBlockProvider provider) {
@@ -78,8 +74,6 @@ public final class CustomBlockRegistry {
     }
 
 
-
-
     public static ItemStack item(final String token) {
         final String normalized = CustomBlockTokens.normalize(token);
         if (normalized == null) {
@@ -98,8 +92,6 @@ public final class CustomBlockRegistry {
             return null;
         }
     }
-
-
 
 
     public static String itemId(final ItemStack item) {

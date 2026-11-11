@@ -16,12 +16,6 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-
-
-
-
-
-
 public final class BombService {
     private static final BombService INSTANCE = new BombService();
 
@@ -61,7 +55,6 @@ public final class BombService {
     }
 
 
-
     public long cooldownRemaining(final Player player) {
         if (player == null || this.cooldownSeconds <= 0) {
             return 0L;
@@ -73,8 +66,6 @@ public final class BombService {
         final long remaining = until - System.currentTimeMillis();
         return remaining <= 0L ? 0L : (remaining + 999L) / 1000L;
     }
-
-
 
 
     public int explode(final Player player, final Location center, final int radius) {

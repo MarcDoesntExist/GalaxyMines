@@ -6,9 +6,6 @@ import java.util.Map;
 import java.util.UUID;
 
 
-
-
-
 public final class PlayerStats {
     private final UUID uuid;
     private final Map<String, Long> mineBlocks = new HashMap<>();
@@ -75,8 +72,6 @@ public final class PlayerStats {
     }
 
 
-
-
     public PlayerStats snapshot() {
         final PlayerStats copy = new PlayerStats(this.uuid, this.name);
         copy.totalBlocks = this.totalBlocks;
@@ -91,7 +86,6 @@ public final class PlayerStats {
         }
         return copy;
     }
-
 
 
     public void mergeFrom(final PlayerStats loaded) {
@@ -119,7 +113,6 @@ public final class PlayerStats {
     public Map<String, PeriodValue> periods() {
         return this.periods;
     }
-
 
 
     public void setLoadedTotals(final long blocks, final long sold, final double earned) {

@@ -11,7 +11,6 @@ import java.util.concurrent.ThreadLocalRandom;
 public class PotionUtils {
 
 
-
     public static PotionEffect parsePotionEffect(final String input) throws PotionParseException {
         final PotionSpec spec = parseSpec(input);
         final PotionEffectType type = Potions.get(spec.effectName());
@@ -26,8 +25,6 @@ public class PotionUtils {
             throw new PotionParseException(input, ex);
         }
     }
-
-
 
 
     static PotionSpec parseSpec(final String input) throws PotionParseException {

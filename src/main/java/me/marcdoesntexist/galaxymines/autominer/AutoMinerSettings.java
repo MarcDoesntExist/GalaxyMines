@@ -3,9 +3,6 @@ package me.marcdoesntexist.galaxymines.autominer;
 import org.bukkit.configuration.ConfigurationSection;
 
 
-
-
-
 public record AutoMinerSettings(boolean enabled, int intervalSeconds, int radius,
                                 int maxBlocksPerCycle) {
 

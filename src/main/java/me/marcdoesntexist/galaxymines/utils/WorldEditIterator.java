@@ -30,7 +30,6 @@ public class WorldEditIterator implements Iterator<Block> {
     }
 
 
-
     private static final class Location2 {
         private final World world;
         private final BlockVector3 vector;

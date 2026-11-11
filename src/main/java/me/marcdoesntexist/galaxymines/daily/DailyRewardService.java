@@ -11,12 +11,6 @@ import java.util.function.LongSupplier;
 import java.util.logging.Logger;
 
 
-
-
-
-
-
-
 public final class DailyRewardService {
     private static final DailyRewardService INSTANCE = new DailyRewardService();
 
@@ -63,7 +57,6 @@ public final class DailyRewardService {
     private static int clamp(final int value, final int min, final int max) {
         return Math.min(max, Math.max(min, value));
     }
-
 
 
     public synchronized void load(final ConfigurationSection config, final File dataFile,
@@ -130,7 +123,6 @@ public final class DailyRewardService {
     }
 
 
-
     public synchronized void reset(final UUID uuid) {
         if (uuid != null && this.claims.remove(uuid) != null) {
             this.save();
@@ -172,8 +164,6 @@ public final class DailyRewardService {
                     + exception.getMessage());
         }
     }
-
-
 
 
     synchronized void clock(final LongSupplier clock) {

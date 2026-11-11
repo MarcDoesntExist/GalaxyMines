@@ -6,9 +6,6 @@ import java.util.zip.GZIPInputStream;
 import java.util.zip.GZIPOutputStream;
 
 
-
-
-
 public final class LongArrayCodec {
     private static final int MAX_ENTRIES = 4_000_000;
 

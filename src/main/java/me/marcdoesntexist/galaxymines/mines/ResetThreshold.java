@@ -4,22 +4,10 @@ import java.util.Locale;
 import java.util.Random;
 
 
-
-
-
-
-
-
-
-
-
-
-
 public final class ResetThreshold {
 
 
     public static final long NANOS_PER_TICK = 50_000_000L;
-
 
 
     public static final ResetThreshold DISABLED = new ResetThreshold(0.0D, 0.0D, 0.0D, 0);
@@ -84,8 +72,6 @@ public final class ResetThreshold {
     }
 
 
-
-
     public double rollTarget(final Random random) {
         if (this.maxPercent <= this.minPercent) {
             this.target = this.defaultPercent > 0.0D ? this.defaultPercent : this.maxPercent;
@@ -98,14 +84,10 @@ public final class ResetThreshold {
     }
 
 
-
-
     public boolean shouldEvaluate(final long nowNanos) {
         return this.intervalNanos == 0L || !this.evaluated
                 || nowNanos - this.lastEvaluationNanos >= this.intervalNanos;
     }
-
-
 
 
     public boolean reached(final double remainingPercent, final long nowNanos) {
@@ -116,7 +98,6 @@ public final class ResetThreshold {
         this.evaluated = true;
         return remainingPercent <= this.target;
     }
-
 
 
     public String describe() {

@@ -8,12 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
-
-
-
-
 public abstract class BasicMessageManager implements MessageManager {
     public static String pluginPrefix;
     public static String header;
@@ -41,8 +35,6 @@ public abstract class BasicMessageManager implements MessageManager {
                 return null;
         }
     }
-
-
 
 
     public static String toMiniMessage(final String input) {
@@ -187,7 +179,6 @@ public abstract class BasicMessageManager implements MessageManager {
     }
 
     public abstract void postSetup();
-
 
 
     @Override

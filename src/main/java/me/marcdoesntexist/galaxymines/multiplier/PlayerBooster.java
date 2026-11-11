@@ -1,9 +1,6 @@
 package me.marcdoesntexist.galaxymines.multiplier;
 
 
-
-
-
 public record PlayerBooster(BoosterType type, double multiplier, long expiresAt) {
 
     public boolean active(final long now) {

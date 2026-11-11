@@ -10,13 +10,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 
-
-
-
-
-
-
-
 public class SellShopMenu extends BasicInventoryMenu {
     public static final String MENU = "sellshop";
     private static final String PERMISSION = "galaxymines.sell";
@@ -28,9 +21,6 @@ public class SellShopMenu extends BasicInventoryMenu {
     public static boolean available(final boolean economyEnabled, final boolean shopEnabled) {
         return economyEnabled && shopEnabled;
     }
-
-
-
 
 
     public static double payout(final double pricePerItem, final int amount,

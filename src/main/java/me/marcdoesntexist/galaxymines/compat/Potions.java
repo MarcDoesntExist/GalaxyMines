@@ -33,8 +33,6 @@ public final class Potions {
     }
 
 
-
-
     static String canonicalName(final String rawName) {
         if (rawName == null) {
             return null;

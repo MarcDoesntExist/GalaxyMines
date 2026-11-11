@@ -5,11 +5,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 import java.util.*;
 
 
-
-
-
-
-
 public final class PluginSettings {
     private static PluginSettings instance = defaults();
 
@@ -242,12 +237,9 @@ public final class PluginSettings {
 
     public static final class Reset {
         public final int blocksPerTick;
-        
 
 
         public final long maxNanosPerTick;
-        
-
 
 
         public final long globalNanosPerTick;
@@ -262,8 +254,6 @@ public final class PluginSettings {
         public final boolean preloadChunks;
         public final int maxPreloadChunks;
         public final int waveLayersPerTick;
-        
-
 
 
         public final boolean commandsEnabled;
@@ -293,9 +283,6 @@ public final class PluginSettings {
             this.commandsEnabled = commandsEnabled;
         }
     }
-
-    
-
 
 
     public static final class Bulk {
@@ -392,15 +379,14 @@ public final class PluginSettings {
 
     public static final class Economy {
         public final boolean enabled;
-        
+
         public final boolean shopEnabled;
-        
+
         public final boolean buyEnabled;
-        
+
         public final double buyMarkup;
         public final String pricesFile;
         public final java.util.Map<String, Double> sellMultipliers;
-        
 
 
         public final me.marcdoesntexist.galaxymines.integration.economy.SellPriority sellPriority;
@@ -440,9 +426,6 @@ public final class PluginSettings {
         }
     }
 
-    
-
-
 
     public static final class Timings {
         public final boolean enabled;
@@ -453,9 +436,6 @@ public final class PluginSettings {
             this.sampleSize = sampleSize;
         }
     }
-
-    
-
 
 
     public static final class Infinite {
@@ -506,7 +486,6 @@ public final class PluginSettings {
         public final int lineWidth;
         public final int teleportDuration;
         public final String itemBillboard;
-        
 
 
         public final int orphanCleanupMinutes;

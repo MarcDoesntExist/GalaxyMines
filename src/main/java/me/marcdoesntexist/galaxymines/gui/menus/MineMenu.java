@@ -153,7 +153,6 @@ public class MineMenu extends BasicInventoryMenu {
     }
 
 
-
     public void openResetEditor(final Player p) {
         if (this.resetEditor == null) {
             this.resetEditor = new MineResetEditorMenu(this.mine, this);
@@ -161,7 +160,6 @@ public class MineMenu extends BasicInventoryMenu {
         }
         this.resetEditor.open(p);
     }
-
 
 
     public void openConstraintsEditor(final Player p) {
@@ -173,7 +171,6 @@ public class MineMenu extends BasicInventoryMenu {
     }
 
 
-
     public void openWaveEditor(final Player p) {
         if (this.waveEditor == null) {
             this.waveEditor = new MineWaveEditorMenu(this.mine, this);
@@ -181,7 +178,6 @@ public class MineMenu extends BasicInventoryMenu {
         }
         this.waveEditor.open(p);
     }
-
 
 
     public void openTierEditor(final Player p) {

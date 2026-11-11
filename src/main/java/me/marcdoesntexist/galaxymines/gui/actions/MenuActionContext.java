@@ -7,8 +7,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
 
-
-
 public record MenuActionContext(Player player, ItemStack itemInHand, Mine mine,
                                 BasicInventoryMenu menu, Object payload, String argument) {
 
@@ -19,10 +17,8 @@ public record MenuActionContext(Player player, ItemStack itemInHand, Mine mine,
     }
 
 
-
     public record CommandRemoval(boolean pre, int index, BasicInventoryMenu returnMenu) {
     }
-
 
 
     public record ConstraintRemoval(boolean breakSection, boolean allow, Material material,

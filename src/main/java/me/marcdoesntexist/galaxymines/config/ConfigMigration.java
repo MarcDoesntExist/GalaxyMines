@@ -17,22 +17,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class ConfigMigration {
 
 
@@ -41,17 +25,13 @@ public final class ConfigMigration {
     private static final DateTimeFormatter STAMP = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
 
 
-
     private static final Map<String, String> VERSION_2_KEYS = new LinkedHashMap<>();
-
 
 
     private static final Map<String, String> VERSION_3_KEYS = new LinkedHashMap<>();
 
 
-
     private static final Map<String, String> VERSION_4_KEYS = new LinkedHashMap<>();
-
 
 
     private static final Map<String, String> VERSION_5_KEYS = new LinkedHashMap<>();
@@ -73,8 +53,6 @@ public final class ConfigMigration {
 
     private ConfigMigration() {
     }
-
-
 
 
     public static FileConfiguration apply(final File file, final FileConfiguration config,
@@ -120,7 +98,6 @@ public final class ConfigMigration {
     }
 
 
-
     static String applyVersion2(final String text, final FileConfiguration config) {
         String result = text;
         for (final Map.Entry<String, String> entry : VERSION_2_KEYS.entrySet()) {
@@ -131,7 +108,6 @@ public final class ConfigMigration {
         }
         return result;
     }
-
 
 
     static String applyVersion5(final String text, final FileConfiguration config) {
@@ -146,7 +122,6 @@ public final class ConfigMigration {
     }
 
 
-
     static String applyVersion4(final String text, final FileConfiguration config) {
         String result = text;
         for (final Map.Entry<String, String> entry : VERSION_4_KEYS.entrySet()) {
@@ -159,7 +134,6 @@ public final class ConfigMigration {
     }
 
 
-
     static String applyVersion3(final String text, final FileConfiguration config) {
         String result = text;
         for (final Map.Entry<String, String> entry : VERSION_3_KEYS.entrySet()) {
@@ -170,7 +144,6 @@ public final class ConfigMigration {
         }
         return result;
     }
-
 
 
     static Path backup(final File file, final Logger logger) throws IOException {

@@ -12,12 +12,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-
-
-
-
-
-
 public final class DropSinks {
 
     private static final DropSinks INSTANCE = new DropSinks();
@@ -31,8 +25,12 @@ public final class DropSinks {
         return INSTANCE;
     }
 
-    
-
+    private static void debug(final String message) {
+        final GalaxyMines plugin = GalaxyMines.getInstance();
+        if (plugin != null) {
+            plugin.getLogger().warning(message);
+        }
+    }
 
     public boolean register(final DropSink sink) {
         if (sink == null || sink.id() == null || sink.id().isBlank()) {
@@ -50,9 +48,6 @@ public final class DropSinks {
         return sinks.isEmpty();
     }
 
-    
-
-
     public List<String> ids() {
         final List<String> out = new ArrayList<>();
         for (final DropSink sink : ordered()) {
@@ -60,9 +55,6 @@ public final class DropSinks {
         }
         return List.copyOf(out);
     }
-
-    
-
 
     public List<ItemStack> offer(final Player player, final Mine mine, final List<ItemStack> drops) {
         if (drops == null || drops.isEmpty() || sinks.isEmpty()) {
@@ -91,12 +83,5 @@ public final class DropSinks {
         all.sort(Comparator.<DropSink>comparingInt(DropSink::priority).reversed()
                 .thenComparing(DropSink::id));
         return all;
-    }
-
-    private static void debug(final String message) {
-        final GalaxyMines plugin = GalaxyMines.getInstance();
-        if (plugin != null) {
-            plugin.getLogger().warning(message);
-        }
     }
 }

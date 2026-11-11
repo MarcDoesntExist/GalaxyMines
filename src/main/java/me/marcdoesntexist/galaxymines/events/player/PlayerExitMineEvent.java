@@ -6,8 +6,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.HandlerList;
 
 
-
-
 public class PlayerExitMineEvent extends CustomEvent {
     private static final HandlerList HANDLERS = new HandlerList();
 

@@ -11,8 +11,6 @@ import org.bukkit.inventory.ItemStack;
 import java.util.HashMap;
 
 
-
-
 public class GUIResourcesUtils {
     public static final int INVENTORY_SIZE = 6;
     static final HashMap<String, ItemStack> customItems = new HashMap<>();
@@ -77,8 +75,6 @@ public class GUIResourcesUtils {
 
     private GUIResourcesUtils() {
     }
-
-
 
 
     public static void reload() {
@@ -149,7 +145,6 @@ public class GUIResourcesUtils {
         final ItemStack itemStack = new ItemStack(NOT_LOADED_ICON);
         return GalaxyMineMessageManager.getInstance().translateItemStack(itemStack, m);
     }
-
 
 
     public static double getCompositionChangeValue(final ItemStack i) {

@@ -10,9 +10,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 
-
-
-
 public final class SellCommand {
     private static final String SELL_PERMISSION = "galaxymines.sell";
 

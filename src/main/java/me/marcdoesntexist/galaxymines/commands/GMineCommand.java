@@ -77,9 +77,6 @@ public class GMineCommand extends CustomCommand {
         this(GalaxyMines.getInstance());
     }
 
-    
-
-
 
     GMineCommand(final Plugin owner) {
         super("galaxymines", ADMIN_PERMISSION,
@@ -428,9 +425,6 @@ public class GMineCommand extends CustomCommand {
                 "%resets%", String.valueOf(stats.resets()));
     }
 
-    
-
-
 
     private void handleTier(final CommandSender sender, final String[] args) {
         if (!this.requireAdmin(sender)) {
@@ -519,9 +513,6 @@ public class GMineCommand extends CustomCommand {
                 "%progress%", String.format(Locale.ROOT, "%.1f", progression.progressPercent()));
     }
 
-    
-
-
 
     private void handleExpand(final CommandSender sender, final String[] args) {
         if (!this.requireAdmin(sender)) {
@@ -590,8 +581,6 @@ public class GMineCommand extends CustomCommand {
                 "%mine%", mine.getName(), "%blocks%", Integer.toString(blocks),
                 "%volume%", Long.toString(MineExpansion.volume(mine.getBounds())));
     }
-
-    
 
 
     private void handleCurrencies(final CommandSender sender) {
@@ -814,9 +803,6 @@ public class GMineCommand extends CustomCommand {
         }
     }
 
-    
-
-
 
     private void reloadEvents(final CommandSender sender) {
         final PluginSettings settings = PluginSettings.get();
@@ -826,9 +812,6 @@ public class GMineCommand extends CustomCommand {
                 "<aqua>Loaded <white>%count%<aqua> event definition(s).",
                 "%count%", String.valueOf(MineEventManager.get().knownEventCount()));
     }
-
-    
-
 
 
     private void handleLuckyBlocks(final CommandSender sender, final String[] args) {
@@ -865,9 +848,6 @@ public class GMineCommand extends CustomCommand {
                     "<gray>- <white>%warning%", "%warning%", warning);
         }
     }
-
-    
-
 
 
     private void handleBooster(final CommandSender sender, final String[] args) {
@@ -999,8 +979,6 @@ public class GMineCommand extends CustomCommand {
                 "%amount%", Integer.toString(removed), "%player%", target.getName());
     }
 
-    
-
 
     private void handleHistory(final CommandSender sender, final String[] args) {
         if (!this.hasPermission(sender, "galaxymines.stats")) {
@@ -1042,9 +1020,6 @@ public class GMineCommand extends CustomCommand {
                     "%mine%", entry.mine().isBlank() ? "-" : entry.mine());
         }
     }
-
-    
-
 
 
     private void handleDaily(final CommandSender sender, final String[] args) {
@@ -1116,8 +1091,6 @@ public class GMineCommand extends CustomCommand {
                 "%streak%", Integer.toString(result.streak()));
     }
 
-    
-
 
     private void handleQuests(final CommandSender sender, final String[] args) {
         if (args.length > 1 && "reset".equalsIgnoreCase(args[1])) {
@@ -1178,8 +1151,6 @@ public class GMineCommand extends CustomCommand {
                     "%reward%", EconomyService.format(quest.rewardMoney()));
         }
     }
-
-    
 
 
     private void handlePass(final CommandSender sender, final String[] args) {
@@ -1288,8 +1259,6 @@ public class GMineCommand extends CustomCommand {
         }
     }
 
-    
-
 
     private void handleBomb(final CommandSender sender, final String[] args) {
         if (!this.requireAdmin(sender)) {
@@ -1326,8 +1295,6 @@ public class GMineCommand extends CustomCommand {
                 "<green>Gave a radius <white>%radius%<green> bomb to <white>%player%<green>.",
                 "%radius%", Integer.toString(radius), "%player%", target.getName());
     }
-
-    
 
 
     private void handleAutoMine(final CommandSender sender, final String[] args) {
@@ -1389,10 +1356,6 @@ public class GMineCommand extends CustomCommand {
         GUIManager.mainMenu.open(player);
     }
 
-    
-
-
-
 
     private void handlePriceGui(final CommandSender sender) {
         if (!(sender instanceof Player player)) {
@@ -1414,9 +1377,6 @@ public class GMineCommand extends CustomCommand {
         }
         me.marcdoesntexist.galaxymines.gui.menus.PriceEditorMenu.open(player, file);
     }
-
-    
-
 
 
     private void handleMilestones(final CommandSender sender, final String[] args) {
@@ -1477,9 +1437,6 @@ public class GMineCommand extends CustomCommand {
         }
     }
 
-    
-
-
 
     private void handlePrices(final CommandSender sender, final String[] args) {
         if (args.length >= 2 && "gui".equalsIgnoreCase(args[1])) {
@@ -1519,9 +1476,6 @@ public class GMineCommand extends CustomCommand {
                     "%key%", key);
         }
     }
-
-    
-
 
 
     private void handlePriceEdit(final CommandSender sender, final String action,
@@ -1582,9 +1536,6 @@ public class GMineCommand extends CustomCommand {
                             ? exception.getClass().getSimpleName() : exception.getMessage());
         }
     }
-
-    
-
 
 
     private void handleProviders(final CommandSender sender) {
@@ -1647,9 +1598,6 @@ public class GMineCommand extends CustomCommand {
                     "<red>- <white>%entry%", "%entry%", "luckyblocks.yml: " + entry);
         }
     }
-
-    
-
 
 
     private void handleDebugTimings(final CommandSender sender) {
@@ -2343,9 +2291,6 @@ public class GMineCommand extends CustomCommand {
             }
         }
 
-        
-
-
 
         private void editResetCommands(final Player p, final Mine mine, final String[] args) {
             if (args.length <= 3) {
@@ -2439,10 +2384,6 @@ public class GMineCommand extends CustomCommand {
                 mine.setPostResetCommands(commands);
             }
         }
-
-        
-
-
 
 
         private void editConstraints(final Player p, final Mine mine, final String[] args) {

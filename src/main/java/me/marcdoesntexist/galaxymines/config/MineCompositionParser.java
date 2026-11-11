@@ -6,14 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
-
 public final class MineCompositionParser {
     private MineCompositionParser() {
     }
-
-
 
 
     public static String format(final String materialName, final double percentage) {

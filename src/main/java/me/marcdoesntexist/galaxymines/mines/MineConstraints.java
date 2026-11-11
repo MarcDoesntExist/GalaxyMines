@@ -5,21 +5,6 @@ import org.bukkit.Material;
 import java.util.*;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 public final class MineConstraints {
 
 
@@ -43,7 +28,6 @@ public final class MineConstraints {
         this.placeAllowed = immutable(placeAllowed);
         this.placeDenied = immutable(placeDenied);
     }
-
 
 
     public static String format(final Collection<Material> materials) {
@@ -77,8 +61,6 @@ public final class MineConstraints {
     }
 
 
-
-
     public boolean deniesBreak(final Material material) {
         if (material == null) {
             return false;
@@ -88,8 +70,6 @@ public final class MineConstraints {
         }
         return !this.breakAllowed.isEmpty() && !this.breakAllowed.contains(material);
     }
-
-
 
 
     public boolean deniesPlace(final Material material) {

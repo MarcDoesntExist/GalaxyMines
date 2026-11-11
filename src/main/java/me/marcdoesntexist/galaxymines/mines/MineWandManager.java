@@ -24,9 +24,6 @@ import java.util.Map;
 import java.util.UUID;
 
 
-
-
-
 public final class MineWandManager implements Listener {
     private final NamespacedKey key;
     private final Map<UUID, Selection> selections = new HashMap<>();

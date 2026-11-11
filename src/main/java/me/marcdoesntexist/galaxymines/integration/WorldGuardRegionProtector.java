@@ -13,10 +13,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-
-
-
-
 public final class WorldGuardRegionProtector implements MineRegionProtector {
     private static final String REGION_PREFIX = "galaxymines_";
     private final Plugin plugin;

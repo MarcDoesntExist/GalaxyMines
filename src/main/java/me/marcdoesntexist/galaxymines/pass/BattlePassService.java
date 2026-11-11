@@ -14,13 +14,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Logger;
 
 
-
-
-
-
-
-
-
 public final class BattlePassService {
     private static final BattlePassService INSTANCE = new BattlePassService();
 
@@ -40,7 +33,6 @@ public final class BattlePassService {
     public static BattlePassService get() {
         return INSTANCE;
     }
-
 
 
     public synchronized void load(final ConfigurationSection config, final File dataFile,
@@ -103,7 +95,6 @@ public final class BattlePassService {
     }
 
 
-
     public synchronized long addXp(final UUID uuid, final long amount) {
         if (!this.isEnabled() || uuid == null || amount <= 0L) {
             return this.xp(uuid);
@@ -124,7 +115,6 @@ public final class BattlePassService {
     }
 
 
-
     public synchronized int level(final UUID uuid) {
         final long xp = this.xp(uuid);
         int level = 0;
@@ -136,8 +126,6 @@ public final class BattlePassService {
         }
         return level;
     }
-
-
 
 
     public synchronized List<BattlePassTier> claim(final UUID uuid) {
@@ -157,7 +145,6 @@ public final class BattlePassService {
         }
         return claimed;
     }
-
 
 
     public void claim(final Player player) {
@@ -180,7 +167,6 @@ public final class BattlePassService {
     }
 
 
-
     public synchronized List<TierStatus> status(final UUID uuid) {
         final PlayerState state = uuid == null ? null : this.players.get(uuid);
         final long xp = state == null ? 0L : state.xp;
@@ -191,7 +177,6 @@ public final class BattlePassService {
         }
         return statuses;
     }
-
 
 
     public synchronized void reset(final UUID uuid) {

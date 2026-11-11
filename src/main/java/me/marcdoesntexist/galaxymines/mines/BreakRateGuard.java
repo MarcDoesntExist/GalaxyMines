@@ -1,16 +1,6 @@
 package me.marcdoesntexist.galaxymines.mines;
 
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.UUID;
-
-
-
-
-
-
+import java.util.*;
 
 
 public final class BreakRateGuard {
@@ -19,8 +9,6 @@ public final class BreakRateGuard {
 
     private final Map<UUID, Deque<Long>> history = new HashMap<>();
     private final Map<UUID, Long> lastWarning = new HashMap<>();
-
-    
 
 
     public boolean allow(final UUID player, final long now, final int maxPerSecond) {
@@ -38,7 +26,7 @@ public final class BreakRateGuard {
         return true;
     }
 
-    
+
     public boolean shouldWarn(final UUID player, final long now) {
         final Long previous = lastWarning.get(player);
         if (previous != null && now - previous < WARNING_INTERVAL_MILLIS) {

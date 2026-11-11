@@ -7,7 +7,6 @@ import me.marcdoesntexist.galaxymines.api.chat.PluginChatManager;
 import me.marcdoesntexist.galaxymines.config.GalaxyMinesConfiguration;
 import me.marcdoesntexist.galaxymines.config.MenuConfig;
 import me.marcdoesntexist.galaxymines.config.PluginSettings;
-import me.marcdoesntexist.galaxymines.holograms.impl.DisplayHologram;
 import me.marcdoesntexist.galaxymines.holograms.impl.DisplayHologramAdapter;
 import me.marcdoesntexist.galaxymines.messages.GalaxyMineMessageManager;
 import me.marcdoesntexist.galaxymines.messages.LegacyMessagesMigration;
@@ -53,7 +52,7 @@ public class PluginLoader {
             PluginLoader.plugin.loadResource(pluginconfig, "config.yml");
         }
         GalaxyMines.pluginConfig = YamlConfiguration.loadConfiguration(pluginconfig);
-        
+
         GalaxyMines.pluginConfig = me.marcdoesntexist.galaxymines.config.ConfigMigration.apply(
                 pluginconfig, GalaxyMines.pluginConfig, PluginLoader.plugin.getLogger());
         PluginSettings.load(GalaxyMines.pluginConfig);
@@ -67,7 +66,7 @@ public class PluginLoader {
         PluginLoader.plugin.minimumDebugPriotity =
                 GalaxyMines.pluginConfig.getInt("settings.minimumDebugLevel");
 
-        
+
         GalaxyMines.storageFolder = new File(GalaxyMines.pluginFolder, "storage");
         ensureFolder(GalaxyMines.storageFolder, "mine storage");
         GalaxyMines.minesFolder = new File(GalaxyMines.pluginFolder, "mines");
@@ -86,7 +85,7 @@ public class PluginLoader {
                 GalaxyMines.pluginConfig.getStringList("settings.holograms.defaultHologramText");
         GalaxyMinesConfiguration.messagesConfig = YamlConfiguration.loadConfiguration(messages);
         Messages.load(GalaxyMinesConfiguration.messagesConfig);
-        
+
         GalaxyMinesConfiguration.forceDefaultBroadcastMessage =
                 GalaxyMines.pluginConfig.getBoolean("global.forceDefaultBroadcastMessage", true);
         GalaxyMines.convertMineResetLite =
@@ -99,9 +98,6 @@ public class PluginLoader {
                     .debug("Could not create the " + description + " (" + folder + ")", true);
         }
     }
-
-    
-
 
 
     private static void ensureResource(final File file, final String resource) {
@@ -128,7 +124,7 @@ public class PluginLoader {
                 GalaxyMines.pluginConfig.getBoolean("settings.holograms.forceDefaultHologramOnAllMines",
                         GalaxyMines.pluginConfig.getBoolean("global.forceDefaultHologramOnAllMines"));
         if (GalaxyMinesConfiguration.useHolograms) {
-            
+
             GalaxyMines.hologramAdapter = new DisplayHologramAdapter();
             PluginLoader.plugin.debug("Using the plugin's built-in holograms.", 3);
             if (GalaxyMinesConfiguration.forceDefaultHolograms) {
@@ -145,7 +141,7 @@ public class PluginLoader {
 
     private static void setupPlugin() {
         if (GalaxyMinesConfiguration.useHolograms) {
-            
+
             me.marcdoesntexist.galaxymines.holograms.OrphanCleanupTask.get().runOnce();
             final int minutes =
                     me.marcdoesntexist.galaxymines.config.PluginSettings.get()
@@ -166,7 +162,7 @@ public class PluginLoader {
             GalaxyMinesConfiguration.useHolograms = false;
             savePluginConfig();
         }
-        
+
         GalaxyMines.defaultColorDesign = new ColorDesign('a', 'e', '7', 'c');
         GalaxyMines.chatManager =
                 (PluginChatManager) PluginChatManager.getInstance(PluginLoader.plugin).setup();

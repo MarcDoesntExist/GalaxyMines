@@ -16,16 +16,6 @@ import org.bukkit.persistence.PersistentDataType;
 import java.util.*;
 
 
-
-
-
-
-
-
-
-
-
-
 public class DisplayHologram implements CompatibleHologram {
     private final List<LineDefinition> definitions = new ArrayList<>();
     private final List<Entity> lines = new ArrayList<>();
@@ -54,7 +44,6 @@ public class DisplayHologram implements CompatibleHologram {
     private static void tag(final Entity entity) {
         entity.getPersistentDataContainer().set(key(), PersistentDataType.BYTE, (byte) 1);
     }
-
 
 
     public static int cleanupOrphans() {

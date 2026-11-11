@@ -79,13 +79,6 @@ tasks.jar {
 }
 
 
-
-
-
-
-
-
-
 val testServerRoot = layout.buildDirectory.dir("test-server")
 val testServerDownloads = testServerRoot.map { it.dir("downloads") }
 
@@ -392,7 +385,6 @@ val providerApiArtifacts = linkedMapOf(
             "https://repo1.maven.org/maven2/beer/devs/itemsadder-api/4.0.18-beta-10/" +
             "itemsadder-api-4.0.18-beta-10.jar"
 )
-
 
 
 val providerApiSha256 = mapOf(

@@ -7,12 +7,7 @@ import java.util.List;
 import java.util.Locale;
 
 
-
-
-
-
 public final class ProviderVersions {
-
 
 
     public static final List<Requirement> TESTED_MINIMUMS = List.of(
@@ -22,7 +17,6 @@ public final class ProviderVersions {
 
     private ProviderVersions() {
     }
-
 
 
     public static void verify(final Plugin owner) {
@@ -41,8 +35,6 @@ public final class ProviderVersions {
             }
         }
     }
-
-
 
 
     public static List<Status> status(final Plugin owner) {
@@ -65,8 +57,6 @@ public final class ProviderVersions {
     }
 
 
-
-
     public static String warningMessage(final Requirement requirement,
                                         final String installed) {
         return requirement.pluginName() + " " + installed
@@ -76,15 +66,11 @@ public final class ProviderVersions {
     }
 
 
-
-
     public static boolean isOlder(final String installed, final String minimum) {
         final int[] left = parse(installed);
         final int[] right = parse(minimum);
         return left != null && right != null && compare(left, right) < 0;
     }
-
-
 
 
     public static int compare(final String left, final String right) {

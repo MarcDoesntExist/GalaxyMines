@@ -4,17 +4,6 @@ import org.bukkit.World;
 import org.bukkit.plugin.Plugin;
 
 
-
-
-
-
-
-
-
-
-
-
-
 public final class MineChunkTickets {
     private static final Handle NONE = new Handle() {
         @Override
@@ -31,14 +20,9 @@ public final class MineChunkTickets {
     }
 
 
-
-
     public static Handle none() {
         return NONE;
     }
-
-
-
 
 
     public static Handle acquire(final Plugin plugin, final World world, final MineBounds bounds,
@@ -98,7 +82,6 @@ public final class MineChunkTickets {
             }
         }
     }
-
 
 
     public interface Handle {

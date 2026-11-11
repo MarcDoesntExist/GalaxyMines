@@ -5,9 +5,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.plugin.Plugin;
 
 
-
-
-
 public final class PlaceholderIntegration {
     private static Object expansion;
 

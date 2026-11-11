@@ -19,15 +19,6 @@ import java.util.function.LongSupplier;
 import java.util.logging.Logger;
 
 
-
-
-
-
-
-
-
-
-
 public final class QuestService {
     private static final QuestService INSTANCE = new QuestService();
 
@@ -45,7 +36,6 @@ public final class QuestService {
     public static QuestService get() {
         return INSTANCE;
     }
-
 
 
     public synchronized void load(final ConfigurationSection config, final File dataFile,
@@ -88,8 +78,6 @@ public final class QuestService {
     }
 
 
-
-
     public synchronized List<QuestDefinition> track(final UUID uuid, final QuestType type,
                                                     final long amount) {
         if (!this.isEnabled() || uuid == null || type == null || amount <= 0L) {
@@ -119,7 +107,6 @@ public final class QuestService {
     }
 
 
-
     public void addProgress(final Player player, final QuestType type, final long amount) {
         if (player == null) {
             return;
@@ -139,7 +126,6 @@ public final class QuestService {
     }
 
 
-
     public synchronized List<Status> status(final UUID uuid) {
         final List<Status> statuses = new ArrayList<>();
         if (uuid == null) {
@@ -154,7 +140,6 @@ public final class QuestService {
         }
         return statuses;
     }
-
 
 
     public synchronized void reset(final UUID uuid) {
@@ -196,7 +181,6 @@ public final class QuestService {
         this.save();
         this.players.clear();
     }
-
 
 
     synchronized void clock(final LongSupplier clock) {

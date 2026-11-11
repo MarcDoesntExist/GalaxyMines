@@ -13,16 +13,6 @@ import java.util.Iterator;
 import java.util.Map;
 
 
-
-
-
-
-
-
-
-
-
-
 public final class InfiniteRespawnService {
     private static final Map<BasicMine, LongRespawnQueue> QUEUES = new IdentityHashMap<>();
     private static BukkitTask ticker;
@@ -31,7 +21,6 @@ public final class InfiniteRespawnService {
 
     private InfiniteRespawnService() {
     }
-
 
 
     public static void schedule(final BasicMine mine, final int x, final int y, final int z) {
@@ -73,7 +62,6 @@ public final class InfiniteRespawnService {
     public static long totalRespawns() {
         return totalRespawns;
     }
-
 
 
     public static void clear(final BasicMine mine) {

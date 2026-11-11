@@ -14,17 +14,7 @@ import org.bukkit.event.world.ChunkLoadEvent;
 import java.util.Collection;
 
 
-
-
-
-
-
-
-
 public final class HologramChunkListener implements Listener {
-
-
-
 
 
     static int recreateInChunk(final Chunk chunk, final Collection<? extends Mine> mines) {

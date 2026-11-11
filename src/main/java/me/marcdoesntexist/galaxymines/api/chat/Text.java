@@ -8,10 +8,6 @@ import net.kyori.adventure.text.minimessage.tag.resolver.TagResolver;
 import java.util.Map;
 
 
-
-
-
-
 public final class Text {
     private static final MiniMessage MINI_MESSAGE = MiniMessage.miniMessage();
 
@@ -28,7 +24,6 @@ public final class Text {
         }
         return Text.MINI_MESSAGE.deserialize(BasicMessageManager.toMiniMessage(input), resolver);
     }
-
 
 
     public static String escape(final String value) {

@@ -16,13 +16,6 @@ import java.util.List;
 import java.util.Locale;
 
 
-
-
-
-
-
-
-
 public final class MineTierEditorMenu extends BasicInventoryMenu {
     private final Mine mine;
     private final MineMenu parent;
@@ -80,7 +73,6 @@ public final class MineTierEditorMenu extends BasicInventoryMenu {
     public void setPendingExpansion(final int blocks) {
         this.pendingExpansion = Math.max(0, blocks);
     }
-
 
 
     public int takePendingExpansion() {

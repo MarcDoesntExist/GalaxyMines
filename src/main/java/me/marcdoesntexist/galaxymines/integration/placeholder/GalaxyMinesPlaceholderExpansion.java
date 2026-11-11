@@ -20,13 +20,7 @@ import java.time.LocalDate;
 import java.util.Locale;
 
 
-
-
-
 public final class GalaxyMinesPlaceholderExpansion extends PlaceholderExpansion {
-
-    
-
 
 
     private static String eventPlaceholder(final String key) {

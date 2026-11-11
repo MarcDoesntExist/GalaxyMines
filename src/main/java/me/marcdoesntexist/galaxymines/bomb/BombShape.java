@@ -4,13 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
-
 public final class BombShape {
     private BombShape() {
     }
-
 
 
     public static List<int[]> offsets(final int radius) {

@@ -14,8 +14,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-
-
 public class StorageManager {
     private static final long STATS_CACHE_NANOS = 1_000_000_000L;
     private static final Map<String, CachedStats> STATS_CACHE = new ConcurrentHashMap<>();
@@ -101,8 +99,6 @@ public class StorageManager {
             return 0L;
         }
     }
-
-
 
 
     public static MineStats getStats(final Mine m) {

@@ -8,13 +8,6 @@ import org.bukkit.inventory.ItemStack;
 import java.util.*;
 
 
-
-
-
-
-
-
-
 public final class MenuConfig {
     private static FileConfiguration config;
 
@@ -54,7 +47,6 @@ public final class MenuConfig {
     }
 
 
-
     public static int[] range(final String menu, final String key, final int fallbackFirst,
                               final int fallbackLast) {
         final ConfigurationSection item = itemSection(menu, key);
@@ -92,9 +84,6 @@ public final class MenuConfig {
     }
 
 
-
-
-
     public static ActionDefinition actionDefinition(final String id) {
         if (MenuConfig.config == null || id == null || id.isBlank()) {
             return null;
@@ -113,9 +102,6 @@ public final class MenuConfig {
     }
 
 
-
-
-
     public static boolean hasActionDefinition(final String id) {
         if (MenuConfig.config == null || id == null || id.isBlank()) {
             return false;
@@ -131,8 +117,6 @@ public final class MenuConfig {
         }
         return false;
     }
-
-
 
 
     public static Map<String, ActionDefinition> actionDefinitions() {
@@ -231,9 +215,6 @@ public final class MenuConfig {
     }
 
 
-
-
-
     public static long confirmationTimeoutMillis() {
         if (MenuConfig.config == null) {
             return 10_000L;
@@ -249,7 +230,6 @@ public final class MenuConfig {
                 : item.getString("item", key);
         return item(reference);
     }
-
 
 
     public static ItemStack item(final String key) {
@@ -272,8 +252,6 @@ public final class MenuConfig {
     }
 
 
-
-
     public static List<Double> percentageSteps(final String menu, final double[] fallback) {
         final ConfigurationSection section = menuSection(menu);
         final List<Double> configured =
@@ -293,8 +271,6 @@ public final class MenuConfig {
         }
         return valid;
     }
-
-
 
 
     public static List<String> validate() {
@@ -443,23 +419,11 @@ public final class MenuConfig {
     }
 
 
-
-
-
     public record ActionStep(String type, String argument) {
         public ActionStep {
             type = normalize(type);
         }
     }
-
-
-
-
-
-
-
-
-
 
 
     public record ActionDefinition(String type, String argument, String permission,

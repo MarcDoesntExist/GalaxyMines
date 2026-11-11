@@ -13,10 +13,6 @@ import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-
-
-
-
 public final class MineAccess {
     private static final Map<DenyKey, Long> DENY_COOLDOWN = new ConcurrentHashMap<>();
 
@@ -162,8 +158,6 @@ public final class MineAccess {
     private static String normalize(final String name) {
         return name.toLowerCase(Locale.ROOT);
     }
-
-
 
 
     private enum Denial {

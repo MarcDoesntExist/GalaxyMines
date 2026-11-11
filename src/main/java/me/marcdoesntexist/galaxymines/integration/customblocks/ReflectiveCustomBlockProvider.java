@@ -10,9 +10,6 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-
-
-
 abstract class ReflectiveCustomBlockProvider implements CustomBlockProvider {
     private final Plugin plugin;
     private final String pluginName;
@@ -126,9 +123,6 @@ abstract class ReflectiveCustomBlockProvider implements CustomBlockProvider {
             return null;
         }
     }
-
-
-
 
 
     protected boolean callBoolean(final Method method, final Object target,

@@ -10,11 +10,6 @@ import org.bukkit.persistence.PersistentDataType;
 import java.util.Objects;
 
 
-
-
-
-
-
 public final class CustomBlockItems {
     private static final NamespacedKey TOKEN_KEY = Objects.requireNonNull(
             NamespacedKey.fromString("galaxymines:custom_block"));
@@ -22,7 +17,6 @@ public final class CustomBlockItems {
 
     private CustomBlockItems() {
     }
-
 
 
     public static ItemStack resolve(final String token) {
@@ -33,8 +27,6 @@ public final class CustomBlockItems {
         final ItemStack item = CustomBlockRegistry.item(normalized);
         return item == null ? null : mark(item, normalized, false);
     }
-
-
 
 
     public static ItemStack placeholder(final String token) {
@@ -59,8 +51,6 @@ public final class CustomBlockItems {
     }
 
 
-
-
     public static boolean matches(final ItemStack first, final ItemStack second) {
         final String firstToken = tokenOf(first);
         final String secondToken = tokenOf(second);
@@ -69,7 +59,6 @@ public final class CustomBlockItems {
         }
         return first != null && second != null && first.getType() == second.getType();
     }
-
 
 
     public static String serialize(final ItemStack item) {

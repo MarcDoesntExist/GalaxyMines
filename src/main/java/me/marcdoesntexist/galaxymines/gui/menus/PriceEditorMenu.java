@@ -22,16 +22,6 @@ import java.util.List;
 import java.util.Locale;
 
 
-
-
-
-
-
-
-
-
-
-
 public final class PriceEditorMenu extends BasicInventoryMenu {
     public static final String PERMISSION = "galaxymines.prices.edit";
     private static final String MENU = "priceeditor";
@@ -80,9 +70,6 @@ public final class PriceEditorMenu extends BasicInventoryMenu {
         return String.format(Locale.ROOT, "%.2f", value);
     }
 
-    
-
-
 
     @Override
     public void open(final Player player) {
@@ -93,9 +80,6 @@ public final class PriceEditorMenu extends BasicInventoryMenu {
     private int pages(final int entries) {
         return Math.max(1, (entries + this.pageSize - 1) / this.pageSize);
     }
-
-    
-
 
 
     private int slot(final String key, final int fallback) {

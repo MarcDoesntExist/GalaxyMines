@@ -10,18 +10,11 @@ import java.util.List;
 import java.util.Locale;
 
 
-
-
-
-
 public final class PriceFileEditor {
     private static final String SECTION = "prices:";
 
     private PriceFileEditor() {
     }
-
-
-
 
 
     public static boolean set(final File file, final String key, final double value)
@@ -59,9 +52,6 @@ public final class PriceFileEditor {
     }
 
 
-
-
-
     public static boolean remove(final File file, final String key) throws IOException {
         if (file == null || key == null || key.isBlank() || !file.isFile()) {
             return false;
@@ -84,8 +74,6 @@ public final class PriceFileEditor {
         }
         return false;
     }
-
-
 
 
     public static String normalize(final String key) {

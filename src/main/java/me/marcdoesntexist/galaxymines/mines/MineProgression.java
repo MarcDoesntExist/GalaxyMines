@@ -3,16 +3,6 @@ package me.marcdoesntexist.galaxymines.mines;
 import java.util.Locale;
 
 
-
-
-
-
-
-
-
-
-
-
 public final class MineProgression {
 
 
@@ -91,18 +81,14 @@ public final class MineProgression {
     }
 
 
-
     public double dropBonus() {
         return bonus(this.dropBonusPerLevel);
     }
 
 
-
     public double sellBonus() {
         return bonus(this.sellBonusPerLevel);
     }
-
-
 
 
     public int levelFor(final long blocks) {
@@ -112,8 +98,6 @@ public final class MineProgression {
         final long computed = 1L + Math.max(0L, blocks) / this.blocksPerLevel;
         return (int) Math.max(1L, Math.min(this.maxLevel, computed));
     }
-
-
 
 
     public MineProgression withLevel(final int newLevel) {
@@ -126,15 +110,12 @@ public final class MineProgression {
     }
 
 
-
-
     public MineProgression withMined(final long total) {
         final long blocks = Math.max(0L, total);
         return new MineProgression(this.enabled, levelFor(blocks), this.maxLevel, blocks,
                 this.blocksPerLevel, this.dropBonusPerLevel, this.sellBonusPerLevel,
                 this.maxBonus);
     }
-
 
 
     public long blocksToNextLevel() {
@@ -145,14 +126,12 @@ public final class MineProgression {
     }
 
 
-
     public double progressPercent() {
         if (this.blocksPerLevel <= 0L || this.level >= this.maxLevel) {
             return 100.0D;
         }
         return 100.0D * (this.minedBlocks % this.blocksPerLevel) / this.blocksPerLevel;
     }
-
 
 
     public String describeBonus() {

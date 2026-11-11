@@ -40,9 +40,6 @@ public final class MineCommandTree {
                 return builder.buildFuture();
             };
 
-    
-
-
 
     private static final SuggestionProvider<CommandSourceStack> BUYABLE =
             (context, builder) -> {
@@ -528,8 +525,7 @@ public final class MineCommandTree {
                                         List.of("clone", string(context, "name"),
                                                 string(context, "newName")))))));
 
-        
-        
+
         root.then(Commands.literal("shop")
                 .requires(source -> source.getSender().hasPermission("galaxymines.sell")
                         || source.getSender().hasPermission(PERMISSION))
@@ -541,9 +537,7 @@ public final class MineCommandTree {
                     return Command.SINGLE_SUCCESS;
                 }));
 
-        
-        
-        
+
         root.then(Commands.literal("buy")
                 .requires(source -> source.getSender().hasPermission("galaxymines.buy")
                         || source.getSender().hasPermission(PERMISSION))
@@ -661,9 +655,6 @@ public final class MineCommandTree {
         }
         return execute(command, context, args);
     }
-
-    
-
 
 
     private static LiteralArgumentBuilder<CommandSourceStack> constraintsBranch(

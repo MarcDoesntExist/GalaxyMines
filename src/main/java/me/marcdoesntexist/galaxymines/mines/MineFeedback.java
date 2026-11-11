@@ -9,9 +9,6 @@ import java.util.Collection;
 import java.util.Locale;
 
 
-
-
-
 public final class MineFeedback {
     private MineFeedback() {
     }

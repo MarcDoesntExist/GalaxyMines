@@ -6,16 +6,6 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.function.IntSupplier;
 
 
-
-
-
-
-
-
-
-
-
-
 public final class OrphanCleanupTask {
     private static final OrphanCleanupTask INSTANCE =
             new OrphanCleanupTask(DisplayHologram::cleanupOrphans);
@@ -35,13 +25,9 @@ public final class OrphanCleanupTask {
     }
 
 
-
     public static boolean shouldRun(final int minutes) {
         return minutes > 0;
     }
-
-
-
 
 
     public boolean runOnce() {
@@ -65,17 +51,14 @@ public final class OrphanCleanupTask {
     }
 
 
-
     public int lastRemoved() {
         return this.lastRemoved;
     }
 
 
-
     public boolean lastSkipped() {
         return this.lastSkipped;
     }
-
 
 
     public String lastRunRelative() {

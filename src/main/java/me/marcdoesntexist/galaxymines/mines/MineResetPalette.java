@@ -9,9 +9,6 @@ import java.util.EnumMap;
 import java.util.Map;
 
 
-
-
-
 public final class MineResetPalette {
     private final RandomCollection<ResetBlock> blocks;
     private final double blockPercentage;
@@ -54,11 +51,9 @@ public final class MineResetPalette {
     }
 
 
-
     public double blockPercentage() {
         return this.blockPercentage;
     }
-
 
 
     public static final class ResetBlock {

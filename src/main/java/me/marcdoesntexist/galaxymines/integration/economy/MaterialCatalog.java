@@ -13,17 +13,6 @@ import java.util.Locale;
 import java.util.Set;
 
 
-
-
-
-
-
-
-
-
-
-
-
 public final class MaterialCatalog {
     public static final String RESOURCE = "/materials.txt";
 
@@ -31,9 +20,6 @@ public final class MaterialCatalog {
 
     private MaterialCatalog() {
     }
-
-    
-
 
 
     public static boolean isKnown(final String raw) {
@@ -48,7 +34,7 @@ public final class MaterialCatalog {
         return names.size();
     }
 
-    
+
     public static Set<String> all() {
         return names;
     }

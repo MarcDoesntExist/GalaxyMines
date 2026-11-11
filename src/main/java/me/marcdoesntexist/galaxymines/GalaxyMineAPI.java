@@ -19,37 +19,26 @@ public class GalaxyMineAPI {
         return MineManager.getMineWith(player);
     }
 
-    
-
 
     public static Mine getMineAt(final Location location) {
         return MineManager.getMineAt(location);
     }
-
-    
 
 
     public static List<Mine> getMines() {
         return MineManager.getMines();
     }
 
-    
-
 
     public static List<Mine> getMinesInWorld(final World world) {
         return me.marcdoesntexist.galaxymines.mines.MineIndex.getMinesInWorld(world);
     }
-
-    
-
 
 
     public static Mine createMine(final String name, final Location first,
                                   final Location second) {
         return MineManager.createCuboid(name, first, second);
     }
-
-    
 
 
     public static boolean deleteMine(final String name) {
@@ -61,8 +50,6 @@ public class GalaxyMineAPI {
         return true;
     }
 
-    
-
 
     public static boolean resetMine(final String name) {
         final Mine mine = MineManager.getMine(name);
@@ -73,14 +60,10 @@ public class GalaxyMineAPI {
         return true;
     }
 
-    
-
 
     public static boolean renameMine(final String name, final String newName) {
         return MineManager.renameMine(MineManager.getMine(name), newName);
     }
-
-    
 
 
     public static boolean isValidMineName(final String name) {
@@ -103,10 +86,6 @@ public class GalaxyMineAPI {
         return GalaxyMineMessageManager.getInstance().translateAll(input, mine);
     }
 
-    
-
-
-
 
     public static boolean registerCurrency(
             final me.marcdoesntexist.galaxymines.integration.economy.Currency currency) {
@@ -114,19 +93,10 @@ public class GalaxyMineAPI {
                 .register(currency);
     }
 
-    
-
 
     public static List<String> registeredCurrencies() {
         return me.marcdoesntexist.galaxymines.integration.economy.CurrencyRegistry.ids();
     }
-
-    
-
-
-
-
-
 
 
     public static boolean registerMultiplierSource(
@@ -134,20 +104,10 @@ public class GalaxyMineAPI {
         return me.marcdoesntexist.galaxymines.multiplier.MultiplierSources.get().register(source);
     }
 
-    
-
-
 
     public static List<String> registeredMultiplierSources() {
         return me.marcdoesntexist.galaxymines.multiplier.MultiplierSources.get().ids();
     }
-
-    
-
-
-
-
-
 
 
     public static boolean registerDropSink(
@@ -155,14 +115,10 @@ public class GalaxyMineAPI {
         return me.marcdoesntexist.galaxymines.integration.drops.DropSinks.get().register(sink);
     }
 
-    
-
 
     public static boolean unregisterDropSink(final String id) {
         return me.marcdoesntexist.galaxymines.integration.drops.DropSinks.get().unregister(id);
     }
-
-    
 
 
     public static List<String> registeredDropSinks() {

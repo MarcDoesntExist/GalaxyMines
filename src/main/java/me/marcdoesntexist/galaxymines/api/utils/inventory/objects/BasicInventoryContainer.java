@@ -89,14 +89,12 @@ public class BasicInventoryContainer implements InventoryContainer {
     }
 
 
-
     @Override
     public void setItem(final int index, final ItemStack item) {
         if (this.map.length > index) {
             this.inventory.setItem(this.map[index], item);
         }
     }
-
 
 
     @Override
@@ -137,8 +135,6 @@ public class BasicInventoryContainer implements InventoryContainer {
     }
 
 
-
-
     @Override
     public boolean canPlaceIn(final int slot) {
         return !this.hasObjectIn(slot);
@@ -174,7 +170,6 @@ public class BasicInventoryContainer implements InventoryContainer {
             this.setItem(index, item);
         }
     }
-
 
 
     private int firstFreeIndex() {

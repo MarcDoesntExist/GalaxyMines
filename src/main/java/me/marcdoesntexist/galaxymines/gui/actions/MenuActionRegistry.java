@@ -1,6 +1,7 @@
 package me.marcdoesntexist.galaxymines.gui.actions;
 
 import me.marcdoesntexist.galaxymines.GalaxyMines;
+import me.marcdoesntexist.galaxymines.api.chat.Text;
 import me.marcdoesntexist.galaxymines.api.utils.inventory.BasicInventoryMenu;
 import me.marcdoesntexist.galaxymines.compat.Materials;
 import me.marcdoesntexist.galaxymines.config.MenuConfig;
@@ -8,7 +9,6 @@ import me.marcdoesntexist.galaxymines.config.MineConfig;
 import me.marcdoesntexist.galaxymines.gui.GUIManager;
 import me.marcdoesntexist.galaxymines.gui.GuiChatInput;
 import me.marcdoesntexist.galaxymines.gui.menus.MineTierEditorMenu;
-import me.marcdoesntexist.galaxymines.api.chat.Text;
 import me.marcdoesntexist.galaxymines.gui.objects.GMinesController;
 import me.marcdoesntexist.galaxymines.integration.economy.CurrencyRegistry;
 import me.marcdoesntexist.galaxymines.integration.economy.SellService;
@@ -20,15 +20,6 @@ import org.bukkit.entity.Player;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.LongSupplier;
-
-
-
-
-
-
-
-
-
 
 
 public final class MenuActionRegistry {
@@ -108,10 +99,6 @@ public final class MenuActionRegistry {
         return run(resolved, context, id);
     }
 
-    
-
-
-
 
     public static ResolvedAction resolve(final String id, final String itemArgument) {
         if (id == null || id.isBlank()) {
@@ -143,22 +130,15 @@ public final class MenuActionRegistry {
         return resolve(id, null) != null;
     }
 
-    
-
 
     public static String defaultPermission(final String type) {
         return type == null ? null : DEFAULT_PERMISSIONS.get(type.toLowerCase(Locale.ROOT));
     }
 
-    
-
 
     public static void clearConfirmations() {
         PENDING_CONFIRMATIONS.clear();
     }
-
-    
-
 
 
     static void setClockForTesting(final LongSupplier supplier) {
@@ -168,8 +148,6 @@ public final class MenuActionRegistry {
     static void resetClockForTesting() {
         clock = System::currentTimeMillis;
     }
-
-    
 
 
     public static List<String> validate() {
@@ -885,8 +863,8 @@ public final class MenuActionRegistry {
                     "Mine %mine% has been loaded.", "%mine%", loaded.getName()));
             refresh(context);
         });
-        
-        
+
+
         register("sell_shop_item", context -> {
             final Player player = context.player();
             if (!SellService.isEnabled()) {
@@ -910,7 +888,7 @@ public final class MenuActionRegistry {
                         "%amount%", CurrencyRegistry.format(sale.currency(), sale.amount()))));
             }
             if (context.menu() != null) {
-                
+
                 context.menu().open(player);
             }
         });
@@ -928,9 +906,6 @@ public final class MenuActionRegistry {
             context.player().performCommand(command);
         });
     }
-
-    
-
 
 
     private static void requestPercentage(final MenuActionContext context, final String promptKey,
@@ -983,10 +958,6 @@ public final class MenuActionRegistry {
                     reopen(context, player);
                 });
     }
-
-    
-
-
 
 
     private static void requestConstraintMaterial(final MenuActionContext context,
@@ -1141,10 +1112,6 @@ public final class MenuActionRegistry {
         GalaxyMines.instance.debug("Menu action '" + id + "' (" + type
                 + ") failed: " + ex.getMessage(), true);
     }
-
-    
-
-
 
 
     public record ResolvedAction(String type, String argument, String permission,

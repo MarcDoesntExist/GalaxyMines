@@ -10,9 +10,6 @@ import java.util.Locale;
 import java.util.UUID;
 
 
-
-
-
 public final class JdbcPlayerStatsStorage implements PlayerStatsStorage {
     private final String type;
     private final String url;

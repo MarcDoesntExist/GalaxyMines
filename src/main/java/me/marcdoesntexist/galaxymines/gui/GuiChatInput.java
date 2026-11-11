@@ -16,13 +16,6 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Consumer;
 
 
-
-
-
-
-
-
-
 public final class GuiChatInput implements Listener {
     private static final long TIMEOUT_MILLIS = 60_000L;
     private static final Map<UUID, Pending> PENDING = new ConcurrentHashMap<>();
@@ -30,7 +23,6 @@ public final class GuiChatInput implements Listener {
 
     private GuiChatInput() {
     }
-
 
 
     public static void register(final GalaxyMines plugin) {
@@ -63,8 +55,6 @@ public final class GuiChatInput implements Listener {
     }
 
 
-
-
     public static boolean submit(final Player player, final String raw) {
         if (player == null) {
             return false;
@@ -88,7 +78,6 @@ public final class GuiChatInput implements Listener {
         pending.consumer().accept(value);
         return true;
     }
-
 
 
     public static void clearAll() {

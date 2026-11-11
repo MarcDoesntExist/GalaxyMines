@@ -1,14 +1,6 @@
 package me.marcdoesntexist.galaxymines.utils;
 
 
-
-
-
-
-
-
-
-
 public final class BlockPositions {
     private static final int COORD_BITS = 26;
     private static final int COORD_MASK = 0x3FFFFFF;

@@ -5,11 +5,6 @@ import java.util.concurrent.ThreadLocalRandom;
 import java.util.random.RandomGenerator;
 
 
-
-
-
-
-
 public class RandomCollection<E> {
     private final RandomGenerator random;
     private E[] values;

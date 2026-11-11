@@ -4,10 +4,6 @@ import java.util.Locale;
 import java.util.Set;
 
 
-
-
-
-
 public final class CustomBlockTokens {
     public static final String NEXO = "nexo";
     public static final String ITEMSADDER = "itemsadder";
@@ -16,9 +12,6 @@ public final class CustomBlockTokens {
 
     private CustomBlockTokens() {
     }
-
-
-
 
 
     public static String normalize(final String input) {
@@ -40,8 +33,6 @@ public final class CustomBlockTokens {
         }
         return namespace + ":" + id;
     }
-
-
 
 
     public static String qualify(final String provider, final String rawId) {

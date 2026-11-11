@@ -15,14 +15,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
-
-
-
-
-
-
 public final class MineWaveEditorMenu extends BasicInventoryMenu {
     private final Mine mine;
     private final MineMenu parent;
@@ -63,8 +55,6 @@ public final class MineWaveEditorMenu extends BasicInventoryMenu {
         return MenuConfig.title("waveeditor", "<dark_blue><bold>Wave: %mine%")
                 .replace("%mine%", mine.getAlias());
     }
-
-
 
 
     public static int effectiveLayers(final int mineLayers) {

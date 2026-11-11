@@ -9,13 +9,6 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 
-
-
-
-
-
-
-
 public final class CurrencyRegistry {
     private static final Map<String, Currency> CURRENCIES = new ConcurrentHashMap<>();
     private static volatile String defaultId = VaultCurrency.ID;
@@ -28,7 +21,6 @@ public final class CurrencyRegistry {
     }
 
 
-
     public static void reset() {
         CURRENCIES.clear();
         defaultId = VaultCurrency.ID;
@@ -38,8 +30,6 @@ public final class CurrencyRegistry {
     private static void installBuiltIns() {
         CURRENCIES.put(VaultCurrency.ID, new VaultCurrency());
     }
-
-
 
 
     public static boolean register(final Currency currency) {
@@ -80,7 +70,6 @@ public final class CurrencyRegistry {
     }
 
 
-
     public static boolean unregister(final String id) {
         if (id == null || normalize(id).equals(VaultCurrency.ID)) {
             return false;
@@ -91,7 +80,6 @@ public final class CurrencyRegistry {
     public static Currency get(final String id) {
         return id == null ? null : CURRENCIES.get(normalize(id));
     }
-
 
 
     public static Currency resolve(final String id) {
@@ -106,7 +94,6 @@ public final class CurrencyRegistry {
     public static String defaultId() {
         return defaultId;
     }
-
 
 
     public static boolean setDefault(final String id) {
@@ -129,8 +116,6 @@ public final class CurrencyRegistry {
     public static List<String> ids() {
         return new ArrayList<>(CURRENCIES.keySet());
     }
-
-
 
 
     public static String format(final String id, final double amount) {

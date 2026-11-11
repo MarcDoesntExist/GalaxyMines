@@ -12,25 +12,10 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.CookingRecipe;
-import org.bukkit.inventory.FurnaceRecipe;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.Recipe;
-import org.bukkit.inventory.RecipeChoice;
-import org.bukkit.inventory.ShapedRecipe;
+import org.bukkit.inventory.*;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
-
-
-
-
-
-
 
 
 public final class MineDropProcessor {
@@ -39,8 +24,6 @@ public final class MineDropProcessor {
 
     private MineDropProcessor() {
     }
-
-    
 
 
     public static void buildRecipeCache() {
@@ -92,11 +75,6 @@ public final class MineDropProcessor {
         }
     }
 
-    
-
-
-
-
 
     private static void addBlockRecipe(final Map<Material, ItemStack> target,
                                        final ShapedRecipe recipe) {
@@ -129,9 +107,6 @@ public final class MineDropProcessor {
                 player.getInventory().getItemInMainHand(), player));
     }
 
-    
-
-
 
     public static boolean canAccept(final Player player, final Mine mine,
                                     final List<ItemStack> drops) {
@@ -140,8 +115,8 @@ public final class MineDropProcessor {
                 || settings.fullInventoryPolicy() != MineDrops.FullInventoryPolicy.CANCEL_BREAK) {
             return true;
         }
-        
-        
+
+
         if (!DropSinks.get().isEmpty()) {
             return true;
         }
@@ -167,8 +142,6 @@ public final class MineDropProcessor {
         return preview;
     }
 
-    
-
 
     public static void deliver(final Player player, final Mine mine, final Location location,
                                final List<ItemStack> rawDrops) {
@@ -179,8 +152,8 @@ public final class MineDropProcessor {
                 * me.marcdoesntexist.galaxymines.multiplier.BoosterService.get()
                 .multiplier(player,
                         me.marcdoesntexist.galaxymines.multiplier.BoosterType.DROP)
-                
-                
+
+
                 * me.marcdoesntexist.galaxymines.multiplier.MultiplierSources.get().drop(player);
         for (final ItemStack stack : rawDrops) {
             if (stack == null || stack.getType().isAir() || stack.getAmount() <= 0) {
@@ -203,14 +176,14 @@ public final class MineDropProcessor {
                 processed.add(smelted);
             }
         }
-        
-        
+
+
         final List<ItemStack> finalDrops = new ArrayList<>();
         for (final ItemStack stack : processed) {
             finalDrops.addAll(split(stack));
         }
-        
-        
+
+
         final List<ItemStack> remaining = DropSinks.get().offer(player, mine, finalDrops);
         if (remaining.isEmpty()) {
             return;
@@ -224,9 +197,6 @@ public final class MineDropProcessor {
             dropAll(player, location, remaining);
         }
     }
-
-    
-
 
 
     public static void deliverRewards(final Player player, final Mine mine,
@@ -261,9 +231,6 @@ public final class MineDropProcessor {
         }
         return result;
     }
-
-    
-
 
 
     static List<Integer> splitAmounts(final int total, final int maxStackSize) {

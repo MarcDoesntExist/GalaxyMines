@@ -6,9 +6,6 @@ import java.time.temporal.WeekFields;
 import java.util.Locale;
 
 
-
-
-
 public enum StatsPeriod {
     DAILY,
     WEEKLY,

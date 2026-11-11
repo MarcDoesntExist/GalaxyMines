@@ -3,8 +3,6 @@ package me.marcdoesntexist.galaxymines.mines;
 import java.util.Collection;
 
 
-
-
 public final class CompositionMath {
     private CompositionMath() {
     }

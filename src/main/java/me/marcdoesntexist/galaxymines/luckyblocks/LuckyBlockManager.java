@@ -19,11 +19,6 @@ import java.util.*;
 import java.util.concurrent.ThreadLocalRandom;
 
 
-
-
-
-
-
 public final class LuckyBlockManager {
     private static final LuckyBlockManager INSTANCE = new LuckyBlockManager();
     private final Map<UUID, Long> cooldowns = new HashMap<>();
@@ -38,8 +33,6 @@ public final class LuckyBlockManager {
     public static LuckyBlockManager get() {
         return INSTANCE;
     }
-
-
 
 
     public static LuckyBlockParser.Result validate(final File file) {
@@ -76,8 +69,6 @@ public final class LuckyBlockManager {
                 .replace("%table%", table.name())
                 .replace("%amount%", String.valueOf(amount));
     }
-
-
 
 
     static ItemStack providerItem(final String token, final int amount) {
@@ -130,7 +121,6 @@ public final class LuckyBlockManager {
     }
 
 
-
     public Map<String, LuckyBlockTable> tables() {
         return Map.copyOf(this.tables);
     }
@@ -173,21 +163,15 @@ public final class LuckyBlockManager {
     }
 
 
-
-
     public boolean isLuckyBlock(final Mine mine, final Block block) {
         return tableName(mine, block) != null;
     }
-
-
 
 
     public boolean replacesDrops(final Mine mine, final Block block) {
         final MineLuckyBlocks config = mineConfig(mine);
         return config != null && config.replaceDrops() && tableName(mine, block) != null;
     }
-
-
 
 
     public boolean trigger(final Player player, final Mine mine, final Block block) {
@@ -235,8 +219,6 @@ public final class LuckyBlockManager {
         applyFeedback(player, block);
         return true;
     }
-
-
 
 
     private void applyFeedback(final Player player, final Block block) {

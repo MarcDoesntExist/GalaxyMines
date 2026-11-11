@@ -1,15 +1,6 @@
 package me.marcdoesntexist.galaxymines.mines;
 
 
-
-
-
-
-
-
-
-
-
 public final class LongRespawnQueue {
     private long[] dueMillis;
     private long[] positions;
@@ -33,8 +24,6 @@ public final class LongRespawnQueue {
         }
         return capacity;
     }
-
-
 
 
     public boolean offer(final long due, final long position, final int maxSize) {

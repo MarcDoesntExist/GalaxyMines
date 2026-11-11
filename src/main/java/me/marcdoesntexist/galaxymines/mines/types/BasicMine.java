@@ -1040,8 +1040,6 @@ public abstract class BasicMine implements Mine {
     }
 
 
-
-
     private void acquireChunkTickets() {
         this.releaseChunkTickets();
         final PluginSettings.Reset settings = PluginSettings.get().reset;
@@ -1406,8 +1404,6 @@ public abstract class BasicMine implements Mine {
             GalaxyMines.instance.printException("Could not start reset for " + this.name, ex);
         }
     }
-
-
 
 
     public void abortReset() {

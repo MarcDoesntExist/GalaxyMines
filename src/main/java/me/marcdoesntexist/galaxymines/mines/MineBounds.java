@@ -1,8 +1,6 @@
 package me.marcdoesntexist.galaxymines.mines;
 
 
-
-
 public record MineBounds(int minX, int minY, int minZ, int maxX, int maxY, int maxZ) {
     public int minChunkX() {
         return this.minX >> 4;

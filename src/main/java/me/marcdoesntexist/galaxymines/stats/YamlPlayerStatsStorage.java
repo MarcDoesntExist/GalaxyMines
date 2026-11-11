@@ -12,9 +12,6 @@ import java.util.List;
 import java.util.UUID;
 
 
-
-
-
 public final class YamlPlayerStatsStorage implements PlayerStatsStorage {
     private final File folder;
 
