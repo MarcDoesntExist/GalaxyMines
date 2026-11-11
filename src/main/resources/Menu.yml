@@ -1,0 +1,656 @@
+config:
+  clickToSeeMine: '&eClick to view the mine composition!'
+  clickToRemove: '&6Click to remove!'
+  clickToEdit: '&eClick to edit!'
+  clickToLoad: '&eClick to load the file!'
+  noMisformattedFiles: '&eThere are no files!'
+  foundFiles: '&eFound a total of &6%total% &eunloaded mines'
+globalItems:
+  splitter:
+    type: IRON_BARS
+    data: 0
+    name: '&r'
+  teleporter:
+    type: ENDER_PEARL
+    data: 0
+    name: '&eTeleports you to the mine!'
+    lore:
+      - '&eThe spawn will be at the'
+      - '&emine surface'
+  clearMaterials:
+    type: BARRIER
+    data: 0
+    name: '&eRemove all materials!'
+    lore:
+      - '&eRemember that removing all'
+      - '&ematerials will make the reset'
+      - '&ebe ignored until'
+      - '&eyou add materials'
+  removeMaterial:
+    type: BARRIER
+    data: 0
+    name: '&6Click to remove'
+    lore:
+      - '&eRemove materials'
+      - '&efrom the composition'
+  resetNow:
+    type: WOODEN_PICKAXE
+    data: 0
+    name: '&eReset the mine'
+    lore:
+      - '&eForce the mine to reset'
+  toogleMaterialEditor:
+    type: SLIME_BALL
+    data: 0
+    name: '&eRemove materials/effects'
+    lore:
+      - '&eRemove materials or effects'
+  noMine:
+    type: BLACK_STAINED_GLASS_PANE
+    data: 0
+    name: '&6No mine found'
+    lore:
+      - '&eThere are no mines'
+      - '&eto display'
+  unloadedMines:
+    type: BLACK_STAINED_GLASS_PANE
+    data: 0
+    name: '&6No files found'
+    lore:
+      - '&eAll unloaded mine files'
+      - '&ewill appear here'
+  fillMine:
+    type: CHEST
+    data: 0
+    name: '&eFill mines'
+    lore:
+      - '&ePlace a block here'
+      - '&eand the mine will fill'
+      - '&ewith it'
+  couldNotLoadFiles:
+    type: BOOK
+    data: 0
+    name: '&eNot configured'
+    lore:
+      - '&eThe following files cannot be read.'
+  iconNotLoaded:
+    type: BARRIER
+    data: 0
+    name: '&e%name%'
+    lore:
+      - '&eThe icon for this mine has not been loaded!'
+  refresh:
+    type: DIAMOND
+    data: 0
+    name: '&eReload menu'
+    lore:
+      - '&eReload the menus!'
+  deleteMine:
+    type: TNT
+    data: 0
+    name: '&eDelete mine'
+    lore:
+      - '&eDelete this mine, including its files.'
+      - '&eYou will not be able to recover it!'
+  disableMine:
+    type: REDSTONE
+    data: 0
+    name: '&eDisable mine'
+    lore:
+      - '&eDisable the mine.'
+  clearMine:
+    type: REDSTONE_BLOCK
+    data: 0
+    name: '&eClear mine'
+    lore:
+      - '&eRemove all blocks'
+  back:
+    type: EMERALD
+    data: 0
+    name: '&6Go back'
+  emptyMaterial:
+    type: BLACK_STAINED_GLASS_PANE
+    data: 0
+    name: '&6No material'
+    lore:
+      - '&ePlace a material to add it!'
+  empty:
+    type: BLACK_STAINED_GLASS_PANE
+    data: 0
+    name: '&r'
+  emptyEffect:
+    type: BLACK_STAINED_GLASS_PANE
+    data: 0
+    name: '&6No effect'
+    lore:
+      - '&eDrop a potion to apply it'
+      - '&eto the mine!'
+  info:
+    type: BOOK
+    data: 0
+    name: '&eStatistics'
+    lore:
+      - '&eTotal percentage: &1%totalpercentage%'
+      - '&eTotal materials: &1%totalmaterials%'
+  balanceMaterials:
+    type: IRON_INGOT
+    data: 0
+    name: '&eBalance materials'
+    lore:
+      - '&eSplit the percentage'
+      - '&eof all materials'
+  resetMaterials:
+    type: GOLD_INGOT
+    data: 0
+    name: '&eReset materials'
+    lore:
+      - '&eSet all materials'
+      - '&eto 5%.'
+  resetEditor:
+    type: CLOCK
+    data: 0
+    name: '&eReset settings'
+    lore:
+      - '&eEdit the reset threshold'
+      - '&eand the pre/post commands.'
+  resetThreshold:
+    type: CLOCK
+    data: 0
+    name: '&eDefault reset threshold'
+  resetMin:
+    type: REDSTONE_TORCH
+    data: 0
+    name: '&eMinimum reset threshold'
+  resetMax:
+    type: REDSTONE_TORCH
+    data: 0
+    name: '&eMaximum reset threshold'
+  resetInterval:
+    type: REPEATER
+    data: 0
+    name: '&eThreshold check interval'
+  addResetCommand:
+    type: WRITABLE_BOOK
+    data: 0
+    name: '&aAdd a reset command'
+  resetCommand:
+    type: PAPER
+    data: 0
+    name: '&eReset command'
+  constraintsEditor:
+    type: IRON_DOOR
+    data: 0
+    name: '&eBlock rules and wave'
+    lore:
+      - '&eEdit which blocks may be'
+      - '&ebroken or placed, and how'
+      - '&ethe wave reset fills the mine.'
+  constraintAllow:
+    type: LIME_DYE
+    data: 0
+    name: '&aAllow a material'
+  constraintDeny:
+    type: RED_DYE
+    data: 0
+    name: '&cDeny a material'
+  constraintClear:
+    type: BARRIER
+    data: 0
+    name: '&cClear a list'
+  constraintPlace:
+    type: LEVER
+    data: 0
+    name: '&ePlacement checks'
+  constraintEntry:
+    type: PAPER
+    data: 0
+    name: '&eConstraint entry'
+  constraintInfo:
+    type: BOOK
+    data: 0
+    name: '&eMine rules'
+  waveDirection:
+    type: COMPASS
+    data: 0
+    name: '&eWave direction'
+  waveLayers:
+    type: REPEATER
+    data: 0
+    name: '&eWave speed'
+  waveEditor:
+    type: SEA_LANTERN
+    data: 0
+    name: '&eWave settings'
+    lore:
+      - '&eEdit the direction and'
+      - '&ethe layers of the wave reset.'
+  waveMinus:
+    type: RED_DYE
+    data: 0
+    name: '&cOne layer fewer'
+  wavePlus:
+    type: LIME_DYE
+    data: 0
+    name: '&aOne layer more'
+  waveSet:
+    type: REPEATER
+    data: 0
+    name: '&eSet the wave speed'
+  waveLayerOn:
+    type: LIME_STAINED_GLASS_PANE
+    data: 0
+    name: '&aFilled layer'
+  waveLayerOff:
+    type: GRAY_STAINED_GLASS_PANE
+    data: 0
+    name: '&7Idle layer'
+  tierEditor:
+    type: EXPERIENCE_BOTTLE
+    data: 0
+    name: '&eTier and expansion'
+    lore:
+      - '&eSee the tier bonuses and'
+      - '&egrow the mine by blocks.'
+  tierLevel:
+    type: EXPERIENCE_BOTTLE
+    data: 0
+    name: '&eTier level'
+  tierBlocks:
+    type: STONE
+    data: 0
+    name: '&eMined blocks'
+  tierExpand:
+    type: GRASS_BLOCK
+    data: 0
+    name: '&eExpand the mine'
+  tierConfirm:
+    type: LIME_CONCRETE
+    data: 0
+    name: '&aConfirm the expansion'
+  pauseMine:
+    type: CLOCK
+    data: 0
+    name: '&ePause or resume'
+  sellHand:
+    type: GOLD_INGOT
+    data: 0
+    name: '&eSell the item in your hand'
+    lore:
+      - '&7The price comes from prices.yml'
+      - '&7and the sell multipliers apply'
+  sellAll:
+    type: HOPPER
+    data: 0
+    name: '&eSell everything'
+    lore:
+      - '&7Sells every priced stack'
+      - '&7in your inventory'
+  closeShop:
+    type: BARRIER
+    data: 0
+    name: '&cClose'
+mainMenu:
+  name: "&1&lGalaxyMines"
+  totalLanes: 6
+  icons:
+    main:
+      type: GOLDEN_PICKAXE
+      data: 0
+      name: '&1GalaxyMines'
+      lore:
+        - '&3An easy way to manage'
+        - '%prefix% &3your mines'
+
+
+settings:
+
+  confirmTimeoutSeconds: 10
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+actions:
+  teleport:
+    type: teleport_mine
+  reset:
+    type: reset_mine
+  delete:
+    type: delete_mine
+    confirm: true
+  balance:
+    type: balance_materials
+
+
+menus:
+  main:
+    title: "&1&lGalaxyMines"
+    rows: 6
+    fill: empty
+    items:
+      info:
+        slot: 49
+        item: main
+      refresh:
+        slot: 26
+        item: refresh
+        action: refresh
+      mine:
+        action: open_mine
+      unloadedMine:
+        action: load_mine
+      mineList:
+        slots: "0-24"
+      unloadedList:
+        slots: "36-44"
+  mine:
+    title: "&1&l%alias%"
+    rows: 6
+    fill: splitter
+    items:
+      teleporter:
+        slot: 0
+        item: teleporter
+        action: teleport
+      reset:
+        slot: 1
+        item: resetNow
+        action: reset
+      clear:
+        slot: 2
+        item: clearMine
+        action: clear_mine
+      fill:
+        slot: 3
+        item: fillMine
+        action: fill_mine
+      resetEditor:
+        slot: 4
+        item: resetEditor
+        action: open_reset_editor
+      constraintsEditor:
+        slot: 5
+        item: constraintsEditor
+        action: open_constraints_editor
+      waveEditor:
+        slot: 6
+        item: waveEditor
+        action: open_wave_editor
+      pause:
+        slot: 7
+        item: pauseMine
+        action: toggle_mine_pause
+      tierEditor:
+        slot: 8
+        item: tierEditor
+        action: open_tier_editor
+      clearMaterials:
+        slot: 9
+        item: clearMaterials
+        action: clear_materials
+      balance:
+        slot: 10
+        item: balanceMaterials
+        action: balance
+      resetMaterials:
+        slot: 11
+        item: resetMaterials
+        action: reset_materials
+      disable:
+        slot: 25
+        item: disableMine
+        action: disable_mine
+      delete:
+        slot: 26
+        item: deleteMine
+        action: delete
+      toggle:
+        slot: 8
+        action: toggle_composition
+      composition:
+        slots: "36-44"
+      back:
+        slot: 45
+        item: back
+        action: back
+      icon:
+        slot: 49
+      info:
+        slot: 53
+        item: info
+  composition:
+    title: "&2&l%material%"
+    rows: 6
+    fill: empty
+    percentageSteps: [ 50.0, 25.0, 10.0, 5.0, 2.0, 1.0, 0.5, 0.1 ]
+    items:
+      changers:
+        slots: "9-25"
+        action: change_percentage
+      options:
+        slots: "36-43"
+      remove:
+        action: remove_material
+      back:
+        slot: 45
+        item: back
+        action: back
+      stats:
+        slot: 43
+        item: info
+  reseteditor:
+    title: "&1&lReset: %mine%"
+    rows: 6
+    fill: splitter
+    items:
+      default:
+        slot: 10
+        item: resetThreshold
+        action: set_reset_default
+      min:
+        slot: 11
+        item: resetMin
+        action: set_reset_min
+      max:
+        slot: 12
+        item: resetMax
+        action: set_reset_max
+      interval:
+        slot: 13
+        item: resetInterval
+        action: set_reset_interval
+      preAdd:
+        slot: 18
+        item: addResetCommand
+        action: add_reset_command
+        action-arg: pre
+      preList:
+        slots: "19-25"
+      postAdd:
+        slot: 27
+        item: addResetCommand
+        action: add_reset_command
+        action-arg: post
+      postList:
+        slots: "28-34"
+      info:
+        slot: 40
+        item: resetThreshold
+      command:
+        item: resetCommand
+        action: remove_reset_command
+      back:
+        slot: 45
+        item: back
+        action: back
+  constraintseditor:
+    title: "&1&lRules: %mine%"
+    rows: 6
+    fill: splitter
+    items:
+      back:
+        slot: 0
+        item: back
+        action: back
+      info:
+        slot: 8
+        item: constraintInfo
+      breakAllow:
+        slot: 9
+        item: constraintAllow
+        action: constraint_allow
+        action-arg: break
+      breakDeny:
+        slot: 10
+        item: constraintDeny
+        action: constraint_deny
+        action-arg: break
+      breakClear:
+        slot: 11
+        item: constraintClear
+        action: constraint_clear
+        action-arg: break
+      placeToggle:
+        slot: 12
+        item: constraintPlace
+        action: toggle_place_constraints
+      placeAllow:
+        slot: 13
+        item: constraintAllow
+        action: constraint_allow
+        action-arg: place
+      placeDeny:
+        slot: 14
+        item: constraintDeny
+        action: constraint_deny
+        action-arg: place
+      placeClear:
+        slot: 15
+        item: constraintClear
+        action: constraint_clear
+        action-arg: place
+      waveEditor:
+        slot: 16
+        item: waveEditor
+        action: open_wave_editor
+      copy:
+        slot: 17
+        item: constraintEntry
+        action: copy_constraints
+      breakAllowList:
+        slots: "18-26"
+      breakDenyList:
+        slots: "27-35"
+      placeAllowList:
+        slots: "36-44"
+      placeDenyList:
+        slots: "45-53"
+      entry:
+        item: constraintEntry
+        action: remove_constraint
+  waveeditor:
+    title: "&1&lWave: %mine%"
+    rows: 6
+    fill: splitter
+    items:
+      back:
+        slot: 0
+        item: back
+        action: back
+      info:
+        slot: 4
+        item: waveSet
+      direction:
+        slot: 10
+        item: waveDirection
+        action: toggle_wave_direction
+      decrease:
+        slot: 12
+        item: waveMinus
+        action: adjust_wave_layers
+        action-arg: '-1'
+      set:
+        slot: 13
+        item: waveSet
+        action: set_wave_layers
+      increase:
+        slot: 14
+        item: wavePlus
+        action: adjust_wave_layers
+        action-arg: '+1'
+      arrow:
+        slot: 27
+        item: waveDirection
+      preview:
+        slots: "28-34"
+  tiereditor:
+    title: "&1&lTier: %mine%"
+    rows: 6
+    fill: splitter
+    items:
+      back:
+        slot: 0
+        item: back
+        action: back
+      info:
+        slot: 4
+        item: tierLevel
+      setLevel:
+        slot: 10
+        item: tierLevel
+        action: tier_set_level
+      addBlocks:
+        slot: 12
+        item: tierBlocks
+        action: tier_add_blocks
+      expand:
+        slot: 14
+        item: tierExpand
+        action: expand_mine
+      confirm:
+        slot: 16
+        item: tierConfirm
+        action: confirm_expand_mine
+  sellshop:
+    title: "&6&lSell shop"
+    rows: 6
+    fill: splitter
+    items:
+      sellHand:
+        slot: 47
+        item: sellHand
+        action: sell_shop_item
+        action-arg: hand
+      sellAll:
+        slot: 49
+        item: sellAll
+        action: sell_shop_item
+        action-arg: all
+      close:
+        slot: 53
+        item: closeShop
+        action: close
+  priceeditor:
+    title: "&1&lSell prices"
+    rows: 6
+    fill: empty

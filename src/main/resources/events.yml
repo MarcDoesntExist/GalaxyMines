@@ -1,0 +1,62 @@
+
+events:
+  double-drops:
+    enabled: false
+    display-name: "Double Drops"
+    type: DOUBLE_DROPS
+    multiplier: 2.0
+    duration-seconds: 300
+    auto-start: false
+    broadcast: true
+    times:
+      - "20:00"
+    mines: [ ]
+  sell-bonus:
+    enabled: false
+    display-name: "Sell Bonus"
+    type: SELL_BONUS
+    multiplier: 1.5
+    duration-seconds: 600
+    auto-start: false
+    broadcast: true
+    times:
+      - "21:00"
+    mines: [ ]
+  rare-block:
+    enabled: false
+    display-name: "Rare Block"
+    type: RARE_BLOCK
+    material: DIAMOND
+    chance: 5.0
+    amount: 1
+    duration-seconds: 300
+    auto-start: false
+    broadcast: true
+    times:
+      - "22:00"
+    mines: [ ]
+  happy-hour:
+    enabled: false
+    display-name: "Happy Hour"
+    type: CUSTOM
+    duration-seconds: 600
+    auto-start: false
+    broadcast: true
+    times: [ ]
+    mines: [ ]
+    actions:
+      drop-multiplier: 2.0
+      sell-multiplier: 1.5
+      rare-drops:
+        - material: DIAMOND
+          chance: 2.5
+          amount: 1
+        - material: EMERALD
+          chance: 1.5
+          amount: 2
+    messages:
+      start: "<gold>%event% <yellow>started! Drops x2 and sales x1.5 for %duration%s."
+      stop: "<gray>%event% has ended."
+    commands:
+      start: [ ]
+      stop: [ ]

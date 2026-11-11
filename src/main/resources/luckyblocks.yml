@@ -1,0 +1,22 @@
+tables:
+  default:
+    rolls: 1
+    rewards:
+      - type: ITEM
+        material: DIAMOND
+        amount: 1-3
+        chance: 35.0
+        message: "$1Lucky! $2+%amount% diamond(s)"
+      - type: ITEM
+        material: GOLD_INGOT
+        amount: 2-5
+        chance: 30.0
+      - type: COMMAND
+        command: "give %player% golden_apple 1"
+        chance: 15.0
+        message: "$1Lucky! $2A golden apple appears."
+      - type: MESSAGE
+        message: "$4Nothing this time..."
+        chance: 20.0
+
+mines: { }

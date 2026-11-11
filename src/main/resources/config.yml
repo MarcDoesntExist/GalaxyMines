@@ -1,0 +1,221 @@
+config-version: 5
+
+settings:
+  minimumDebugLevel: 3
+  defaults:
+    resetDelayMinutes: 5
+    broadcastOnReset: true
+    broadcastNearby: false
+    broadcastRadius: 50.0
+    maxMineNameLength: 32
+  reset:
+    blocksPerTick: 8192
+    maxMillisecondsPerTick: 4.0
+    globalMillisecondsPerTick: 6.0
+    countdown:
+      enabled: false
+      seconds: [ 60, 30, 10, 5, 4, 3, 2, 1 ]
+      title: true
+      actionBar: true
+      sound: block.note_block.pling
+    minCooldownSeconds: 0
+    safeTeleport: true
+    stateSaveSeconds: 30
+    preloadChunks: true
+    maxPreloadChunks: 4096
+    waveLayersPerTick: 1
+    commands:
+      enabled: true
+  timings:
+    enabled: true
+    sampleSize: 512
+  infinite:
+    maxRespawnsPerTick: 128
+  bulk:
+    blocksPerTick: 4096
+    intervalTicks: 1
+  protection:
+    cancelBlockBreakOutsideMines: false
+    compositionOnly: false
+    denyCooldownSeconds: 3
+    requireAccessPermission: false
+    requireBreakPermission: false
+  bossbar:
+    enabled: false
+    color: BLUE
+    style: SOLID
+  drops:
+    autoPickup: false
+    autoSmelt: false
+    autoBlock: false
+    autoSell: false
+    dropMultiplier: 1.0
+    sellMultiplier: 1.0
+    fullInventoryPolicy: DROP
+  teleport:
+    warmupSeconds: 0
+    cooldownSeconds: 0
+    cancelOnMove: true
+  feedback:
+    enter:
+      sound: ''
+      particle: ''
+    exit:
+      sound: ''
+      particle: ''
+    reset:
+      sound: entity.player.levelup
+      particle: ''
+    low:
+      sound: block.note_block.bass
+      particle: ''
+  statistics:
+    enabled: true
+    saveSeconds: 60
+    storage: YAML
+    jdbc:
+      url: ''
+      username: ''
+      password: ''
+    leaderboardCacheSeconds: 30
+  holograms:
+    enableHolograms: true
+    orphan-cleanup-minutes: 0
+    useHologramResetSync: true
+    customHologramRefreshRate: 20
+    forceDefaultHologramOnAllMines: false
+    defaultHologramText:
+      - '%header%'
+      - '$2Mined: $1%minedblocks%$4/$1%volume% $2blocks'
+      - '$1%remainingblockspercent%$2% remaining'
+      - '$2Time Remaining: $1%resettime%'
+      - '%header%'
+    display:
+      lineSpacing: 0.27
+      billboard: CENTER
+      seeThrough: false
+      shadowed: true
+      backgroundAlpha: 0
+      lineWidth: 200
+      teleportDuration: 1
+      itemBillboard: FIXED
+
+economy:
+  enabled: false
+  shop-enabled: false
+  buy-enabled: false
+  buy-markup: 1.5
+  pricesFile: prices.yml
+  sellPriority: PROVIDER_FIRST
+  sellMultipliers:
+    galaxymines.sell.vip: 1.5
+    galaxymines.sell.mvp: 2.0
+
+events:
+  enabled: true
+  file: events.yml
+
+luckyblocks:
+  enabled: false
+  file: luckyblocks.yml
+
+boosters:
+  max-multiplier: 100.0
+  max-duration-seconds: 604800
+
+history:
+  max-entries: 50
+
+quests:
+  enabled: true
+  reset: daily
+  entries:
+    miner:
+      display-name: "Mine 500 blocks"
+      type: BLOCKS_MINED
+      target: 500
+      reward-money: 1000
+    seller:
+      display-name: "Sell 250 items"
+      type: ITEMS_SOLD
+      target: 250
+      reward-money: 750
+    earner:
+      display-name: "Earn 5000"
+      type: MONEY_EARNED
+      target: 5000
+      reward-money: 1500
+
+battle-pass:
+  enabled: true
+  season: "1"
+  xp-per-block: 1
+  xp-per-item-sold: 1
+  tiers:
+    "1":
+      xp: 100
+      money: 500
+    "2":
+      xp: 400
+      money: 1000
+    "3":
+      xp: 1000
+      money: 2000
+    "4":
+      xp: 2500
+      money: 3500
+    "5":
+      xp: 5000
+      money: 6000
+      commands:
+        - "give %player% diamond 5"
+
+bombs:
+  enabled: true
+  max-radius: 8
+  cooldown-seconds: 5
+
+auto-miner:
+  enabled: true
+  interval-seconds: 5
+  radius: 2
+  max-blocks-per-cycle: 4
+
+anti-clicker:
+  max-breaks-per-second: 0
+  message: "<red>Slow down: that is faster than a human can mine.</red>"
+
+integrations:
+  multipliers:
+    enabled: true
+    drop-cap: 3.0
+    sell-cap: 3.0
+    disabled: [ ]
+
+daily-rewards:
+  enabled: true
+  cooldown-hours: 24
+  streak-window-hours: 48
+  max-streak: 7
+  rewards:
+    "1":
+      money: 500
+    "2":
+      money: 750
+    "3":
+      money: 1000
+    "4":
+      money: 1500
+    "5":
+      money: 2000
+    "6":
+      money: 2500
+    "7":
+      money: 5000
+      commands:
+        - "give %player% diamond 5"
+  default:
+    money: 250
+
+global:
+  forceDefaultBroadcastMessage: true

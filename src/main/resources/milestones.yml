@@ -1,0 +1,15 @@
+
+enabled: false
+rewards:
+  "1000":
+    message: "<gold>Milestone: <white>%player%</white> mined 1,000 blocks.</gold>"
+    commands:
+      - "tokens give %player% 1000"
+  "10000":
+    message: "<gold>Milestone: <white>%player%</white> mined 10,000 blocks.</gold>"
+    commands:
+      - "tokens give %player% 5000"
+  "100000":
+    message: "<gold>Milestone: <white>%player%</white> mined 100,000 blocks.</gold>"
+    commands:
+      - "tokens give %player% 25000"

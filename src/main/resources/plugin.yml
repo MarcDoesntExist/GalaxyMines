@@ -1,0 +1,67 @@
+name: GalaxyMines
+version: '${version}'
+main: me.marcdoesntexist.galaxymines.GalaxyMines
+api-version: '1.21'
+description: Mine management plugin with WorldEdit regions, GUIs and holograms.
+authors:
+  - MarcDoesntExists
+website: https://github.com/founder05/GalaxyMines/tree/main
+
+depend:
+  - WorldEdit
+softdepend:
+  - ExcellentEnchants
+  - PlaceholderAPI
+  - Vault
+  - WorldGuard
+  - Nexo
+  - ItemsAdder
+  - Oraxen
+  - GalaxyRanks
+
+permissions:
+  galaxymines.admin:
+    description: Access to all administrative mine commands.
+    default: op
+  galaxymines.prices.edit:
+    description: Open the in-game sell price editor (/mine prices gui).
+    default: op
+  galaxymines.bypass:
+    description: Bypass mine access, break and protection checks.
+    default: op
+  galaxymines.mine.*:
+    description: Access to every mine when per-mine permissions are enabled.
+    default: op
+  galaxymines.mine.*.break:
+    description: Break access to every mine when per-mine break permissions are enabled.
+    default: op
+  galaxymines.tp:
+    description: Teleport to a mine you can access.
+    default: true
+  galaxymines.sell:
+    description: Sell items with /sell, /sellall and /sellhand.
+    default: true
+  galaxymines.stats:
+    description: View personal statistics and mine leaderboards.
+    default: true
+  galaxymines.daily:
+    description: Claim the daily login reward with /mine daily.
+    default: true
+  galaxymines.wand:
+    description: Receive the mine selection wand.
+    default: op
+  galaxymines.events:
+    description: Start and stop temporary mine events.
+    default: op
+  galaxymines.bomb:
+    description: Detonate mine bombs inside a mine.
+    default: true
+  galaxymines.autominer:
+    description: Toggle the opt-in auto-miner with /mine automine.
+    default: false
+  galaxymines.sell.vip:
+    description: Optional sell multiplier permission used by config.yml.
+    default: false
+  galaxymines.sell.mvp:
+    description: Optional sell multiplier permission used by config.yml.
+    default: false
